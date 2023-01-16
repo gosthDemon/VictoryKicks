@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+:root {
+    --clr: #222327;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #858585;
+    border-radius: 3px;
+}
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(65, 65, 65, 0.836);
+    border-radius: 3px;
+}
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+.parent-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--clr);
+    padding: none;
+    margin: none;
+}
+.parent-container .body{
+    flex-grow: 1;
+    padding: 20px 20px 115px 20px;
+    height: 100vh;
+    color: white;
+}
+.parent-container .body .kicks-card{
+    width: 100%;
+    height: 100%;
+    background: var(--clr);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+}
+.parent-container .body .kicks-card .banner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.parent-container .body .kicks-card .banner .tittle-banner{
+    font-family: 'Orbitron', sans-serif;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 10;
+}
+.parent-container .body .kicks-card .banner .content-banner{
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/home/VIJZ-Air-Max-1-Patta-Waves-Design-Transparent-Template.png");
+    background-size: cover;
+}
+@media screen and (max-width:992px) {
+    .parent-container .body .kicks-card .banner{
+        display: none;
+    }
+}
+.parent-container .body .kicks-card .content{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.parent-container .body .kicks-card .content .content-search-input{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+}
+.search-input {
+    width: calc(100% - 60px); /* para que ocupe el resto del espacio */
+    padding-right: 60px; /* para que no tapen el botón */
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 5px 0px 0px 5px;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid #dfdbd2;
+    color:#dfdbd2;
+    padding-left: 20px;
+    font-size: 17px;
+    outline: none;
+    font-family: 'Orbitron';
+}
+.scan-qr{
+    width: 60px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 0px 5px 5px 0px;
+    border: 1px solid #dfdbd2;
+    border-left: none;
+    outline: none;
+    background: rgba(255, 255, 255, .1);
+    color: #dfdbd2;
+}
+.scan-qr:hover{
+    cursor: pointer;
+}
+.scan-qr i{
+    font-size: 25px;
+}
+.parent-container .body .kicks-card .content .image-qr-content{
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+}
+.parent-container .body .kicks-card .content .image-qr-content img{
+    height: 250px;
+    width: 250px;
+}
+.parent-container .body .kicks-card .content .info-shoes{
+    padding: 10px;
+}
+.parent-container .body .kicks-card .content .info-shoes .name{
+    font-family: 'Orbitron';
+    font-size: 25px;
+    line-height: 1;
+    text-align: center;
+}
+.parent-container .body .kicks-card .content .info-shoes p{
+    font-family: 'Orbitron';
+    line-height: .7;
+    font-size: 35px;
+}
+.parent-container .body .kicks-card .content .info-shoes p.sale{
+    font-family: 'Orbitron';
+    font-size: 60px;
+}
+.parent-container .body .kicks-card .content .info-shoes span{
+    font-family: 'Orbitron';
+    line-height: .5;
+    font-size: 15px;
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white{
+    background: white;
+
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white{
+    background: white;
+    color: var(--clr);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.parent-container .footer{
+    flex-shrink: 0;
+    height: 106px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background: var(--clr);
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+}
+.navigation {
+    width: 100%;
+    height: 70px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navigation ul {
+    display: flex;
+    width: 350px;
+    position: relative;
+    align-items: center;
+    padding: 0px;
+}
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: .5s;
+    color: var(--clr);
+}
+.navigation ul li.active a .icon{
+    transform: translateY(-35px);
+    transition: .5s;
+}
+.navigation ul li a .text{
+    position: absolute;
+    color: var(--clr);
+    opacity: 0;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0,05em;
+    transition: 0.5s;
+}
+.navigation ul li.active a .text{
+    opacity: 1;
+    transform: translateY(10px);
+}
+.indicator{
+    position: absolute;
+    top: -50%;
+    left: 0px;
+    width: 70px;
+    height: 70px;
+    background: #29fd53;
+    border-radius: 50%;
+    border: 6px solid var(--clr);
+    transition: .5s;
+}
+.indicator::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 var(--clr);
+}
+.indicator::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 22px;
+    box-shadow: -1px -10px 0 0px var(--clr);
+}
+.navigation ul li:nth-child(1).active ~ .indicator{
+    transform: translateX(calc(70px * 0));
+}
+.navigation ul li:nth-child(2).active ~ .indicator{
+    transform: translateX(calc(70px * 1));
+}
+.navigation ul li:nth-child(3).active ~ .indicator{
+    transform: translateX(calc(70px * 2));
+}
+.navigation ul li:nth-child(4).active ~ .indicator{
+    transform: translateX(calc(70px * 3));
+}
+.navigation ul li:nth-child(5).active ~ .indicator{
+    transform: translateX(calc(70px * 4));
+}
