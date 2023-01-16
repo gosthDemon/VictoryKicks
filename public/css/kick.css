@@ -112,6 +112,19 @@ body {
     outline: none;
     font-family: 'Orbitron';
 }
+.content-info-one{
+    height: 320px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+@media screen and (max-width: 992px){
+    .content-info-one{
+        height: fit-content;
+    }
+}
+.content-info-one .row-info-one{
+    max-width: 100%;
+}
 .scan-qr{
     width: 60px;
     position: absolute;
@@ -138,43 +151,69 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 10px 10px 10px;
+    padding: 50px 10px 0px 10px;
 }
 .parent-container .body .kicks-card .content .image-qr-content img{
     height: 250px;
     width: 250px;
 }
 .parent-container .body .kicks-card .content .info-shoes{
-    padding: 10px;
+    padding: 10px 10px 10px 10px;
 }
 .parent-container .body .kicks-card .content .info-shoes .name{
     font-family: 'Orbitron';
     font-size: 25px;
     line-height: 1;
     text-align: center;
+    padding: 20px 10px 10px 10px;
 }
 .parent-container .body .kicks-card .content .info-shoes p{
     font-family: 'Orbitron';
-    line-height: .7;
-    font-size: 35px;
+    line-height: .6;
+    font-size: 23px;
 }
 .parent-container .body .kicks-card .content .info-shoes p.sale{
     font-family: 'Orbitron';
-    font-size: 60px;
+    font-size: 40px;
 }
 .parent-container .body .kicks-card .content .info-shoes span{
     font-family: 'Orbitron';
     line-height: .5;
     font-size: 15px;
 }
-.parent-container .body .kicks-card .content .info-shoes .card-info-white{
-    background: white;
-
+.parent-container .body .kicks-card .content .info-shoes span.info-text{
+    color: #29fd53;
 }
 .parent-container .body .kicks-card .content .info-shoes .card-info-white{
     background: white;
     color: var(--clr);
+    padding: 5px;
+    border-radius: 3px;
+    height: 180px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white .tittle{
+    color: var(--clr);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Orbitron';
+    margin-bottom: 7px;
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white p{
+    color: var(--clr);
+    text-align: left;
+    font-family: 'Orbitron';
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white p.brand{
+    font-size: 17px;
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white p span{
+    font-weight: bold;
 }
 
 
