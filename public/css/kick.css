@@ -215,7 +215,36 @@ body {
 .parent-container .body .kicks-card .content .info-shoes .card-info-white p span{
     font-weight: bold;
 }
-
+.parent-container .body .kicks-card .content .content-info-two .btn-sale{
+    margin-top: 40px;
+    width: 100%;
+    padding: 20px;
+    font-size: 30px;
+    font-family: 'Orbitron';
+    font-weight: bold;
+    letter-spacing:20px;
+    text-transform: uppercase;
+    border: 3px solid #29fd53;
+    background: var(--clr);
+    color: #29fd53;
+    border-radius: 5px;
+    transition: .5s;
+}
+.parent-container .body .kicks-card .content .content-info-two .btn-sale:hover{
+    background: red;
+    width: 100%;
+    padding: 20px;
+    font-size: 30px;
+    font-family: 'Orbitron';
+    font-weight: bold;
+    letter-spacing:20px;
+    text-transform: uppercase;
+    border: 3px solid #29fd53;
+    background:#29fd53;
+    border-radius: 5px;
+    color: var(--clr);
+    transition: .5s;
+}
 
 
 
@@ -322,8 +351,8 @@ body {
 .indicator::before{
     content: "";
     position: absolute;
-    top: 50%;
-    left: -22px;
+    top: 64%;
+    left: -18px;
     width: 20px;
     height: 20px;
     background: transparent;
@@ -333,8 +362,8 @@ body {
 .indicator::after{
     content: "";
     position: absolute;
-    top: 50%;
-    left: 60px;
+    top: 64%;
+    left: 56px;
     width: 20px;
     height: 20px;
     background: transparent;
