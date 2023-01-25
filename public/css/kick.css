@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
 :root {
     --clr: #222327;
 }
@@ -7,23 +7,23 @@
     width: 0px;
 }
 
-  /* Track */
+/* Track */
 ::-webkit-scrollbar-track {
     background: #858585;
     border-radius: 3px;
 }
 
-  /* Handle */
+/* Handle */
 ::-webkit-scrollbar-thumb {
     background: rgba(65, 65, 65, 0.836);
     border-radius: 3px;
 }
 
-  /* Handle on hover */
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-*{
+* {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
@@ -36,7 +36,7 @@ body {
     margin: 0px;
     padding: 0px;
 }
-.parent-container{
+.parent-container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -45,13 +45,13 @@ body {
     padding: none;
     margin: none;
 }
-.parent-container .body{
+.parent-container .body {
     flex-grow: 1;
     padding: 20px 20px 115px 20px;
     height: 100vh;
     color: white;
 }
-.parent-container .body .kicks-card{
+.parent-container .body .kicks-card {
     width: 100%;
     height: 100%;
     background: var(--clr);
@@ -59,13 +59,13 @@ body {
     overflow-x: hidden;
     display: flex;
 }
-.parent-container .body .kicks-card .banner{
+.parent-container .body .kicks-card .banner {
     width: 100%;
     height: 100%;
     position: relative;
 }
-.parent-container .body .kicks-card .banner .tittle-banner{
-    font-family: 'Orbitron', sans-serif;
+.parent-container .body .kicks-card .banner .tittle-banner {
+    font-family: "Orbitron", sans-serif;
     width: 100%;
     text-align: center;
     padding: 5px;
@@ -74,23 +74,23 @@ body {
     position: absolute;
     z-index: 10;
 }
-.parent-container .body .kicks-card .banner .content-banner{
+.parent-container .body .kicks-card .banner .content-banner {
     height: 100%;
     width: 100%;
     background-image: url("../img/home/VIJZ-Air-Max-1-Patta-Waves-Design-Transparent-Template.png");
     background-size: cover;
 }
-@media screen and (max-width:992px) {
-    .parent-container .body .kicks-card .banner{
+@media screen and (max-width: 992px) {
+    .parent-container .body .kicks-card .banner {
         display: none;
     }
 }
-.parent-container .body .kicks-card .content{
+.parent-container .body .kicks-card .content {
     width: 100%;
     height: 100%;
     padding: 10px;
 }
-.parent-container .body .kicks-card .content .content-search-input{
+.parent-container .body .kicks-card .content .content-search-input {
     width: 100%;
     height: 40px;
     border-radius: 5px;
@@ -106,26 +106,27 @@ body {
     border: none;
     background: rgba(0, 0, 0, 0);
     border: 1px solid #dfdbd2;
-    color:#dfdbd2;
+    color: #dfdbd2;
     padding-left: 20px;
     font-size: 17px;
     outline: none;
-    font-family: 'Orbitron';
+    font-family: "Orbitron";
 }
-.content-info-one{
+.content-info-one {
     height: 320px;
     overflow-y: hidden;
     overflow-x: hidden;
 }
-@media screen and (max-width: 992px){
-    .content-info-one{
+@media screen and (max-width: 992px) {
+    .content-info-one {
         height: fit-content;
     }
 }
-.content-info-one .row-info-one{
+.content-info-one .row-info-one {
     max-width: 100%;
+    margin: 0px;
 }
-.scan-qr{
+.scan-qr {
     width: 60px;
     position: absolute;
     right: 0;
@@ -137,54 +138,54 @@ body {
     border: 1px solid #dfdbd2;
     border-left: none;
     outline: none;
-    background: rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, 0.1);
     color: #dfdbd2;
 }
-.scan-qr:hover{
+.scan-qr:hover {
     cursor: pointer;
 }
-.scan-qr i{
+.scan-qr i {
     font-size: 25px;
 }
-.parent-container .body .kicks-card .content .image-qr-content{
+.parent-container .body .kicks-card .content .image-qr-content {
     height: 270px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 50px 10px 0px 10px;
 }
-.parent-container .body .kicks-card .content .image-qr-content img{
+.parent-container .body .kicks-card .content .image-qr-content img {
     height: 250px;
     width: 250px;
 }
-.parent-container .body .kicks-card .content .info-shoes{
+.parent-container .body .kicks-card .content .info-shoes {
     padding: 10px 10px 10px 10px;
 }
-.parent-container .body .kicks-card .content .info-shoes .name{
-    font-family: 'Orbitron';
+.parent-container .body .kicks-card .content .info-shoes .name {
+    font-family: "Orbitron";
     font-size: 25px;
     line-height: 1;
     text-align: center;
     padding: 20px 10px 10px 10px;
 }
-.parent-container .body .kicks-card .content .info-shoes p{
-    font-family: 'Orbitron';
-    line-height: .6;
+.parent-container .body .kicks-card .content .info-shoes p {
+    font-family: "Orbitron";
+    line-height: 0.6;
     font-size: 23px;
 }
-.parent-container .body .kicks-card .content .info-shoes p.sale{
-    font-family: 'Orbitron';
+.parent-container .body .kicks-card .content .info-shoes p.sale {
+    font-family: "Orbitron";
     font-size: 40px;
 }
-.parent-container .body .kicks-card .content .info-shoes span{
-    font-family: 'Orbitron';
-    line-height: .5;
+.parent-container .body .kicks-card .content .info-shoes span {
+    font-family: "Orbitron";
+    line-height: 0.5;
     font-size: 15px;
 }
-.parent-container .body .kicks-card .content .info-shoes span.info-text{
+.parent-container .body .kicks-card .content .info-shoes span.info-text {
     color: #29fd53;
 }
-.parent-container .body .kicks-card .content .info-shoes .card-info-white{
+.parent-container .body .kicks-card .content .info-shoes .card-info-white {
     background: white;
     color: var(--clr);
     padding: 5px;
@@ -192,82 +193,167 @@ body {
     height: 180px;
     overflow-y: scroll;
     overflow-x: hidden;
-
 }
-.parent-container .body .kicks-card .content .info-shoes .card-info-white .tittle{
+.parent-container
+    .body
+    .kicks-card
+    .content
+    .info-shoes
+    .card-info-white
+    .tittle {
     color: var(--clr);
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Orbitron';
+    font-family: "Orbitron";
     margin-bottom: 7px;
 }
-.parent-container .body .kicks-card .content .info-shoes .card-info-white p{
+.parent-container .body .kicks-card .content .info-shoes .card-info-white p {
     color: var(--clr);
     text-align: left;
-    font-family: 'Orbitron';
+    font-family: "Orbitron";
     font-size: 12px;
     line-height: 1;
     margin-bottom: 10px;
 }
-.parent-container .body .kicks-card .content .info-shoes .card-info-white p.brand{
+.parent-container
+    .body
+    .kicks-card
+    .content
+    .info-shoes
+    .card-info-white
+    p.brand {
     font-size: 17px;
 }
-.parent-container .body .kicks-card .content .info-shoes .card-info-white p span{
+.parent-container
+    .body
+    .kicks-card
+    .content
+    .info-shoes
+    .card-info-white
+    p
+    span {
     font-weight: bold;
 }
-.parent-container .body .kicks-card .content .content-info-two .btn-sale{
+.parent-container .body .kicks-card .content .content-info-two .btn-sale {
     margin-top: 40px;
     width: 100%;
     padding: 20px;
     font-size: 30px;
-    font-family: 'Orbitron';
+    font-family: "Orbitron";
     font-weight: bold;
-    letter-spacing:20px;
+    letter-spacing: 20px;
     text-transform: uppercase;
     border: 3px solid #29fd53;
     background: var(--clr);
     color: #29fd53;
     border-radius: 5px;
-    transition: .5s;
+    transition: 0.5s;
 }
-.parent-container .body .kicks-card .content .content-info-two .btn-sale:hover{
+.parent-container .body .kicks-card .content .content-info-two .btn-sale:hover {
     background: red;
     width: 100%;
     padding: 20px;
     font-size: 30px;
-    font-family: 'Orbitron';
+    font-family: "Orbitron";
     font-weight: bold;
-    letter-spacing:20px;
+    letter-spacing: 20px;
     text-transform: uppercase;
     border: 3px solid #29fd53;
-    background:#29fd53;
+    background: #29fd53;
     border-radius: 5px;
     color: var(--clr);
-    transition: .5s;
+    transition: 0.5s;
+}
+/* SCANNER QR */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#reader {
+    width: 100%;
+}
+#result {
+    text-align: center;
+    font-size: 1.5rem;
+}
+#html5-qrcode-button-launching-camera {
+    display: none !important;
+}
+#html5-qrcode-button-camera-stop {
+    display: none !important;
+}
+/* FORMS */
+form .tittle-form {
+    font-family: "Orbitron";
+    color: #29fd53;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+}
+form .btn-register,
+.content .btn-register {
+    padding: 10px;
+    background: #222327;
+    color: #29fd53;
+    font-family: "Orbitron";
+    font-size: 25px;
+    border: 2px solid #29fd53;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+form .btn-register:hover,
+.content .btn-register:hover {
+    padding: 10px;
+    background: #29fd53;
+    color: #222327;
+    font-family: "Orbitron";
+    font-size: 25px;
+    border: 2px solid #29fd53;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+.content .img-shoe {
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+    border: 2px dashed #29fd53;
+    margin-bottom: 15px;
+}
+.content .img-shoe img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.file-upload {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.camera-icon {
+    background-color: #29fd53;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    padding: 50px;
+    color: #fff;
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.parent-container .footer{
+.parent-container .footer {
     flex-shrink: 0;
     height: 106px;
     width: 100%;
@@ -317,27 +403,27 @@ body {
     line-height: 75px;
     font-size: 1.5em;
     text-align: center;
-    transition: .5s;
+    transition: 0.5s;
     color: var(--clr);
 }
-.navigation ul li.active a .icon{
+.navigation ul li.active a .icon {
     transform: translateY(-35px);
-    transition: .5s;
+    transition: 0.5s;
 }
-.navigation ul li a .text{
+.navigation ul li a .text {
     position: absolute;
     color: var(--clr);
     opacity: 0;
     font-weight: 400;
     font-size: 0.75em;
-    letter-spacing: 0,05em;
+    letter-spacing: 0, 05em;
     transition: 0.5s;
 }
-.navigation ul li.active a .text{
+.navigation ul li.active a .text {
     opacity: 1;
     transform: translateY(10px);
 }
-.indicator{
+.indicator {
     position: absolute;
     top: -50%;
     left: 0px;
@@ -346,9 +432,9 @@ body {
     background: #29fd53;
     border-radius: 50%;
     border: 6px solid var(--clr);
-    transition: .5s;
+    transition: 0.5s;
 }
-.indicator::before{
+.indicator::before {
     content: "";
     position: absolute;
     top: 64%;
@@ -359,7 +445,7 @@ body {
     border-top-right-radius: 20px;
     box-shadow: 1px -10px 0 0 var(--clr);
 }
-.indicator::after{
+.indicator::after {
     content: "";
     position: absolute;
     top: 64%;
@@ -370,18 +456,18 @@ body {
     border-top-left-radius: 22px;
     box-shadow: -1px -10px 0 0px var(--clr);
 }
-.navigation ul li:nth-child(1).active ~ .indicator{
+.navigation ul li:nth-child(1).active ~ .indicator {
     transform: translateX(calc(70px * 0));
 }
-.navigation ul li:nth-child(2).active ~ .indicator{
+.navigation ul li:nth-child(2).active ~ .indicator {
     transform: translateX(calc(70px * 1));
 }
-.navigation ul li:nth-child(3).active ~ .indicator{
+.navigation ul li:nth-child(3).active ~ .indicator {
     transform: translateX(calc(70px * 2));
 }
-.navigation ul li:nth-child(4).active ~ .indicator{
+.navigation ul li:nth-child(4).active ~ .indicator {
     transform: translateX(calc(70px * 3));
 }
-.navigation ul li:nth-child(5).active ~ .indicator{
+.navigation ul li:nth-child(5).active ~ .indicator {
     transform: translateX(calc(70px * 4));
 }

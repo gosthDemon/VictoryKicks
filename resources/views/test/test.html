@@ -1,74 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-</head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-    main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #reader {
-        width: 600px;
-    }
-    #result {
-        text-align: center;
-        font-size: 1.5rem;
-    }
-    .html5-qrcode-element{
-        background: red;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: none;
-        border-radius: 3px;
-        font-family: 'Orbitron', sans-serif;
-    }
-    #html5-qrcode-button-camera-stop{
-        display: none !important;
-    }
-</style>
-<body>
-
-    <main>
-        <div id="reader"></div>
-        <div id="result"></div>
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-
-        const scanner = new Html5QrcodeScanner('reader', {
-            qrbox: {
-                width: 250,
-                height: 250,
-            },
-            facingMode: "environment",
-            fps: 20,
-
-
-        });
-
-
-        scanner.render(success);
-        // Starts scanner
-
-        function success(result) {
-
-            document.getElementById('result').innerHTML = `
-            <h2>Success!</h2>
-            <p><a href="${result}">${result}</a></p>
-            `;
-            scanner.clear();
-
-            document.getElementById('reader').remove();
-
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900 &display=swap');
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+        #reader {
+            width: 600px;
+        }
+        #result {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .html5-qrcode-element {
+            background: red;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 3px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        #html5-qrcode-button-camera-stop {
+            display: none !important;
+        }
+    </style>
+    <body>
 
-    </script>
-</body>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contentModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <main>
+                            <div id="reader"></div>
+                            <div id="result"></div>
+                        </main>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+        <script>
+
+
+            const scanner = new Html5QrcodeScanner('reader', {
+                qrbox: {
+                    width: 250,
+                    height: 250
+                },
+                facingMode: "environment",
+                fps: 20
+            });
+            $('#contentModal').on('show.bs.modal', function (event) { // do something...
+                scanner.render(success);
+            });
+            $('#contentModal').on('hidden.bs.modal', function (event) { // do something...
+            scanner.stop().then((ignore) => {
+                // QR Code scanning is stopped.
+            }).catch((err) => {
+                // Stop failed, handle it.
+            });});
+            function success(result) {
+
+                document.getElementById('result').innerHTML = `
+                    <h2>Success!</h2>
+                    <p><a href="${result}">${result}</a></p>
+                    `;
+                scanner.clear();
+
+                document.getElementById('reader').remove();
+            }
+
+            // Starts scanner
+        </script>
+    </body>
 </html>
