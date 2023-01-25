@@ -287,13 +287,12 @@ main {
 form .tittle-form {
     font-family: "Orbitron";
     color: #29fd53;
-    font-size: 40px;
+    font-size: 35px;
     text-align: center;
     padding: 10px;
 }
-form .btn-register,
-.content .btn-register {
-    padding: 10px;
+form .btn-register{
+    padding: 5px;
     background: #222327;
     color: #29fd53;
     font-family: "Orbitron";
@@ -301,10 +300,11 @@ form .btn-register,
     border: 2px solid #29fd53;
     border-radius: 5px;
     transition: 0.5s;
+    margin-top: 10px;
 }
 form .btn-register:hover,
 .content .btn-register:hover {
-    padding: 10px;
+    padding: 5px;
     background: #29fd53;
     color: #222327;
     font-family: "Orbitron";
@@ -312,6 +312,9 @@ form .btn-register:hover,
     border: 2px solid #29fd53;
     border-radius: 5px;
     transition: 0.5s;
+}
+.form-group {
+    margin-bottom: 5px;
 }
 .content .img-shoe {
     background-size: cover;
