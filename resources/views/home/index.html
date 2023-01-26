@@ -12,159 +12,65 @@
 
     <body>
         <div class="parent-container">
-            <div
-                class="body">
-                <!-- <div class="kicks-card">
-                                    <div class="banner">
-                                        <div class="tittle-banner">VICTORY KICKS</div>
-                                        <div class="content-banner"></div>
-                                    </div>
-                                    <div class="content">
-                                        <div class="content-search-input">
-                                            <input type="text" name="search" id="search" class="search-input" placeholder="Search..."/>
-                                            <button class="scan-qr" data-toggle="modal" data-target="#contentScanner">
-                                                <i class="fad fa-qrcode"></i>
-                                            </button>
-                                        </div>
-                                        <div class="content-info-one">
-                                            <div class="row row-info-one">
-                                                <div class="image-qr-content col-md-6">
-                                                    <img src="../../../public/img/temp/download.png" alt=""/>
-                                                </div>
-                                                <div class="info-shoes col-md-6">
-                                                    <div class="name">
-                                                        Air Jordan 1 Chicago Reimagined
-                                                    </div>
-                                                    <br/>
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <span class="info-text">Buy</span>
-                                                            <p>50</p>
-                                                            <span class="info-text">Minimum</span>
-                                                            <p>95</p>
-                                                            <span class="info-text">Sale</span>
-                                                            <p class="sale">100</p>
-                                                        </div>
-                                                        <div class="col-6 card-info-white">
-                                                            <div class="tittle">Details</div>
-                                                            <p class="brand">
-                                                                <span>Brand:</span>
-                                                                NIKE
-                                                            </p>
-                                                            <p>
-                                                                <span>Model:</span>
-                                                                Air Jordan Air Force 1 Magazine
-                                                            </p>
-                                                            <p>
-                                                                <span>ID:</span>6666699694</p>
-                                                            <p>
-                                                                <span>Size:</span>
-                                                                M
-                                                            </p>
-                                                            <p>
-                                                                <span>Color:</span>
-                                                                Red
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                
-                                        <div class="modal fade" id="contentScanner" tabindex="-1" aria-labelledby="contentScannerLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="contentScannerLabel">
-                                                            Modal title
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="main">
-                                                            <div id="reader"></div>
-                                                            <div id="result"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                            Close
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary">
-                                                            Save changes
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content-info-two">
-                                            <button class="btn-sale">Sale</button>
-                                        </div>
-                                    </div>
-                                </div> -->
-
+            <div class="body">
                 <div class="kicks-card">
-                    <div class="banner">
-                        <form action="">
-                            <div class="row">
-                                <div class="tittle-form col-12">
-                                    Register new shoe
+                        <div class="banner">
+                            <div class="img-shoe">
+                                <div class="file-upload">
+                                    <img alt="" id="image_shoe">
+                                    <label for="selected_image_kicks" class="camera-icon">
+                                        <i class="fal fa-camera"></i>
+                                    </label>
+                                    <input type="file" id="selected_image_kicks" style="display:none">
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label for="name">Name:</label>
-                                    <input type="password" class="form-control" id="name" name="name">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="price_buy">Buy in:</label>
-                                    <input type="number" class="form-control" id="price_buy" name="price_buy">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="minimum_price">Minimum Price:</label>
-                                    <input type="number" class="form-control" id="minimum_price" name="minimum_price">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="sale_price">Price:</label>
-                                    <input type="number" class="form-control" id="sale_price" name="sale_price">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="brand">Brand:</label>
-                                    <input type="text" class="form-control" id="brand" name="brand">
-                                </div>
-                                <div class="form-group col-md-8">
-                                    <label for="model">Model:</label>
-                                    <input type="text" class="form-control" id="model" name="model">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="code">Code:</label>
-                                    <input type="text" class="form-control" id="code" name="code">
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label for="size">Size:</label>
-                                    <input type="text" class="form-control" id="size" name="size">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="colors">Color:</label>
-                                    <input type="text" class="form-control" id="colors" name="colors">
-                                </div>
-                                <button class="col-md-10 mx-auto  btn-register">New Registration</button>
                             </div>
-                        </form>
-                    </div>
-                    <div class="content">
-                        <div class="img-shoe">
-                            <div class="file-upload">
-                                <label for="selected_image" class="camera-icon">
-                                    <i class="fal fa-camera"></i>
-                                </label>
-                                <input type="file" id="selected_image"/>
-                            </div>
-                            <button onclick="test()">fdgsfd</button>
                         </div>
-                        <!-- <div class="row">
-                                                        <button class="col-md-10 mx-auto  btn-register">Load Image</button>
-                                                    </div> -->
+                        <div class="content">
+                            <form action="">
+                                <div class="row">
+                                    <div class="tittle-form col-12">
+                                        Register new shoe
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="name">Name:</label>
+                                        <input type="password" class="form-control" id="name" name="name">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="price_buy">Buy in:</label>
+                                        <input type="number" class="form-control" id="price_buy" name="price_buy">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="minimum_price">Minimum Price:</label>
+                                        <input type="number" class="form-control" id="minimum_price" name="minimum_price">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="sale_price">Price:</label>
+                                        <input type="number" class="form-control" id="sale_price" name="sale_price">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="brand">Brand:</label>
+                                        <input type="text" class="form-control" id="brand" name="brand">
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <label for="model">Model:</label>
+                                        <input type="text" class="form-control" id="model" name="model">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="code">Code:</label>
+                                        <input type="text" class="form-control" id="code" name="code">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="size">Size:</label>
+                                        <input type="text" class="form-control" id="size" name="size">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="colors">Color:</label>
+                                        <input type="text" class="form-control" id="colors" name="colors">
+                                    </div>
+                                    <button class="col-md-10 mx-auto  btn-register">New Registration</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="footer">
@@ -222,15 +128,19 @@
 
 
                 const list = document.querySelectorAll(".list");
-                let selectedImage = document.getElementById("selected_image");
-                let scanner = new Html5QrcodeScanner('reader', {
-                    qrbox: {
-                        width: 250,
-                        height: 250
-                    },
-                    facingMode: "environment",
-                    fps: 20
-                });
+                let selectedImage = document.getElementById("selected_image_kicks");
+                let boxRender = document.getElementById("render");
+                let image = document.getElementById("image_shoe");
+                if(boxRender){
+                        let scanner = new Html5QrcodeScanner('reader', {
+                            qrbox: {
+                                width: 250,
+                                height: 250
+                            },
+                            facingMode: "environment",
+                            fps: 20
+                        });
+                }
                 // Menu ACTIVE LINK
                 function activeLink() {
                     list.forEach((item) => {
@@ -254,19 +164,13 @@
                     $('#contentScanner').modal('hide');
                 }
                 // Selected Image Form
-                selectedImage.style.display = "none";
                 selectedImage.addEventListener('change', ()=>{
-                    alert('sdfasd');
-                    if (input.files.length > 0) {
-                        var image = input.files[0];
+                    if (selectedImage.files.length > 0) {
+                        var image = selectedImage.files[0];
                         var imageURL = URL.createObjectURL(image);
-                        console.log(imageURL);
+                        image_shoe.src = imageURL;
                     }
                 });
-                function test(){
-                    let selectedImage = document.getElementById("selected_image");
-                    console.log(selectedImage);
-                }
             </script>
         </body>
     </body>
