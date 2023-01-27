@@ -50,7 +50,11 @@
                             </div>
 
                             <div class="group-form">
-                                    <div class="error-form-input">@error('email'){{ $message }}@enderror &nbsp; </div>
+                                <div class="error-form-input">
+                                    @error('email')
+                                        {{ $message }}
+                                    @enderror &nbsp;
+                                </div>
                             </div>
                             <div class="group-form">
                                 <button class="login-button">Log In</button>

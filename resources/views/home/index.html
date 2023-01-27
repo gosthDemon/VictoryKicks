@@ -1,177 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-        <title>Victory Kicks</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="Last-Modified" content="0">
+        <title>
+            Victory Kicks</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <link rel="stylesheet" href="../../../public/css/fontAwesome.css"/>
-        <link rel="stylesheet" href="../../../public/css/kick.css"/>
+        <link rel="stylesheet" href="../../../public/css/kick.css">
     </head>
 
     <body>
         <div class="parent-container">
             <div class="body">
                 <div class="kicks-card">
-                        <div class="banner">
-                            <div class="img-shoe">
-                                <div class="file-upload">
-                                    <img alt="" id="image_shoe">
-                                    <label for="selected_image_kicks" class="camera-icon">
-                                        <i class="fal fa-camera"></i>
-                                    </label>
-                                    <input type="file" id="selected_image_kicks" style="display:none">
-                                </div>
-                            </div>
+                    <div class="table-container">
+                        <div class="content-search">
+                            <input type="text" placeholder="Search in table...">
+                            <button>
+                                <i class="fal fa-search"></i>
+                            </button>
+                            <button>
+                                <i class="fal fa-qrcode"></i>
+                            </button>
                         </div>
-                        <div class="content">
-                            <form action="">
-                                <div class="row">
-                                    <div class="tittle-form col-12">
-                                        Register new shoe
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="name">Name:</label>
-                                        <input type="password" class="form-control" id="name" name="name">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="price_buy">Buy in:</label>
-                                        <input type="number" class="form-control" id="price_buy" name="price_buy">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="minimum_price">Minimum Price:</label>
-                                        <input type="number" class="form-control" id="minimum_price" name="minimum_price">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="sale_price">Price:</label>
-                                        <input type="number" class="form-control" id="sale_price" name="sale_price">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="brand">Brand:</label>
-                                        <input type="text" class="form-control" id="brand" name="brand">
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <label for="model">Model:</label>
-                                        <input type="text" class="form-control" id="model" name="model">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="code">Code:</label>
-                                        <input type="text" class="form-control" id="code" name="code">
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="size">Size:</label>
-                                        <input type="text" class="form-control" id="size" name="size">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="colors">Color:</label>
-                                        <input type="text" class="form-control" id="colors" name="colors">
-                                    </div>
-                                    <button class="col-md-10 mx-auto  btn-register">New Registration</button>
-                                </div>
-                            </form>
+                        <br>
+                        <div class="table">
+                            <table class="table table-hover">
+                                <thead class="">
+                                    <tr>
+                                        <th scope="col">Cod</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Size</th>
+                                        <th scope="col">Sale Price</th>
+                                        <th scope="col">Brand</th>
+                                        <th scope="col">Model</th>
+                                        <th colspan="4"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1324123345</th>
+                                        <td>Nike Air Jordan</td>
+                                        <td>M</td>
+                                        <td>120$us</td>
+                                        <td>Nike</td>
+                                        <td>Air jordan</td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-eye"></i></button></td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-edit"></i></button></td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-trash"></i></button></td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-print"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1324123345</th>
+                                        <td>Nike Air Jordan</td>
+                                        <td>M</td>
+                                        <td>120$us</td>
+                                        <td>Nike</td>
+                                        <td>Air jordan</td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-eye"></i></button></td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-edit"></i></button></td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-trash"></i></button></td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-print"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1324123345</th>
+                                        <td>Nike Air Jordan</td>
+                                        <td>M</td>
+                                        <td>120$us</td>
+                                        <td>Nike</td>
+                                        <td>Air jordan</td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-eye"></i></button></td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-edit"></i></button></td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-trash"></i></button></td>
+                                        <td><button class="button-table"><i class="icon-table fad fa-print"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        
                         </div>
-                    </div>
-                </div>
-                <div class="footer">
-                    <div class="navigation">
-                        <ul>
-                            <li class="list active">
-                                <a href="#">
-                                    <span class="icon">
-                                        <i class="far fa-home"></i>
-                                    </span>
-                                    <span class="text">Home</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="#">
-                                    <span class="icon">
-                                        <i class="fad fa-edit"></i>
-                                    </span>
-                                    <span class="text">Register</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="#">
-                                    <span class="icon">
-                                        <i class="fad fa-list"></i>
-                                    </span>
-                                    <span class="text">Items</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="#">
-                                    <span class="icon">
-                                        <i class="fad fa-bags-shopping"></i>
-                                    </span>
-                                    <span class="text">Buy/Sale</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="#">
-                                    <span class="icon">
-                                        <i class="fad fa-cog"></i>
-                                    </span>
-                                    <span class="text">Settings</span>
-                                </a>
-                            </li>
-                            <div class="indicator"></div>
-                        </ul>
                     </div>
                 </div>
             </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-            <script>
-
-
-                const list = document.querySelectorAll(".list");
-                let selectedImage = document.getElementById("selected_image_kicks");
-                let boxRender = document.getElementById("render");
-                let image = document.getElementById("image_shoe");
-                if(boxRender){
-                        let scanner = new Html5QrcodeScanner('reader', {
-                            qrbox: {
-                                width: 250,
-                                height: 250
-                            },
-                            facingMode: "environment",
-                            fps: 20
-                        });
-                }
-                // Menu ACTIVE LINK
-                function activeLink() {
-                    list.forEach((item) => {
-                        item.classList.remove("active");
-                        this.classList.add("active");
-                    });
-                }
+            <div class="footer">
+                <div class="navigation">
+                    <ul>
+                        <li class="list active">
+                            <a href="#">
+                                <span class="icon">
+                                    <i class="far fa-home"></i>
+                                </span>
+                                <span class="text">
+                                    Home</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#">
+                                <span class="icon">
+                                    <i class="fad fa-edit"></i>
+                                </span>
+                                <span class="text">
+                                    Register</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#">
+                                <span class="icon">
+                                    <i class="fad fa-list"></i>
+                                </span>
+                                <span class="text">
+                                    Items</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#">
+                                <span class="icon">
+                                    <i class="fad fa-bags-shopping"></i>
+                                </span>
+                                <span class="text">
+                                    Buy/Sale</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#">
+                                <span class="icon">
+                                    <i class="fad fa-cog"></i>
+                                </span>
+                                <span class="text">
+                                    Settings</span>
+                            </a>
+                        </li>
+                        <div class="indicator"></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ=="></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+        <script>
+            const list = document.querySelectorAll(".list");
+            let selectedImage = document.getElementById("selected_image_kicks");
+            let boxRender = document.getElementById("render");
+            let image = document.getElementById("image_shoe");
+            if (boxRender) {
+                let scanner = new Html5QrcodeScanner('reader', {
+                    qrbox: {
+                        width: 250,
+                        height: 250
+                    },
+                    facingMode: "environment",
+                    fps: 20
+                });
+            }
+            // Menu ACTIVE LINK
+            function activeLink() {
                 list.forEach((item) => {
-                    item.addEventListener("click", activeLink);
+                    item.classList.remove("active");
+                    this.classList.add("active");
                 });
-                // QR SCANER
-                $('#contentScanner').on('show.bs.modal', function (event) {
-                    scanner.render(success);
-                });
-                $('#contentScanner').on('hidden.bs.modal', function (event) {
-                    scanner.clear();
-                });
-                function success(result) {
-                    console.log(result);
-                    scanner.clear();
-                    $('#contentScanner').modal('hide');
+            }
+            list.forEach((item) => {
+                item.addEventListener("click", activeLink);
+            });
+            // QR SCANER
+            $('#contentScanner').on('show.bs.modal', function (event) {
+                scanner.render(success);
+            });
+            $('#contentScanner').on('hidden.bs.modal', function (event) {
+                scanner.clear();
+            });
+            function success(result) {
+                console.log(result);
+                scanner.clear();
+                $('#contentScanner').modal('hide');
+            }
+            // Selected Image Form
+            selectedImage.addEventListener('change', () => {
+                if (selectedImage.files.length > 0) {
+                    var image = selectedImage.files[0];
+                    var imageURL = URL.createObjectURL(image);
+                    image_shoe.src = imageURL;
                 }
-                // Selected Image Form
-                selectedImage.addEventListener('change', ()=>{
-                    if (selectedImage.files.length > 0) {
-                        var image = selectedImage.files[0];
-                        var imageURL = URL.createObjectURL(image);
-                        image_shoe.src = imageURL;
-                    }
+            });
+
+            // TABLE
+
+            $(document).ready(function () {
+                $('#example').DataTable({
+                    responsive: {
+                        details: {
+                            type: 'column'
+                        }
+                    },
+                    columnDefs: [
+                        {
+                            className: 'dtr-control',
+                            orderable: false,
+                            targets: 0
+                        }
+                    ],
+                    order: [1, 'asc']
                 });
-            </script>
-        </body>
+            });
+        </script>
     </body>
-</html>
+
+</html></body></html>

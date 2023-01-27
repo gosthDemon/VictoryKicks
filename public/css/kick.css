@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
-:root {
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900 &display=swap");:root {
     --clr: #222327;
 }
 /* width */
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
+    height: 0px;
 }
 
 /* Track */
@@ -25,8 +25,8 @@
 }
 * {
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 body {
     display: flex;
@@ -46,7 +46,7 @@ body {
 }
 .parent-container .body {
     flex-grow: 1;
-    padding: 20px 20px 120px 20px;
+    padding: 20px 20px 120px;
     color: white;
 }
 .parent-container .body .kicks-card {
@@ -56,7 +56,7 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     display: flex;
-    padding-bottom: 0px ;
+    padding-bottom: 0;
 }
 .parent-container .body .kicks-card .banner {
     width: 100%;
@@ -82,9 +82,9 @@ body {
 .parent-container .body .kicks-card .content {
     width: 100%;
     height: 100%;
-    padding: 0px 15px 15px 15px;
+    padding: 0 15px 15px;
 }
-@media screen and (max-width: 992px) {
+@media screen and(max-width: 992px) {
     .parent-container .body .kicks-card {
         flex-direction: column;
         height: auto;
@@ -102,7 +102,7 @@ body {
     padding-right: 60px; /* para que no tapen el botón */
     height: 100%;
     box-sizing: border-box;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 0 0 5px;
     border: none;
     background: rgba(0, 0, 0, 0);
     border: 1px solid #dfdbd2;
@@ -117,14 +117,14 @@ body {
     overflow-y: hidden;
     overflow-x: hidden;
 }
-@media screen and (max-width: 992px) {
+@media screen and(max-width: 992px) {
     .content-info-one {
         height: fit-content;
     }
 }
 .content-info-one .row-info-one {
     max-width: 100%;
-    margin: 0px;
+    margin: 0;
 }
 .scan-qr {
     width: 60px;
@@ -134,7 +134,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0 5px 5px 0;
     border: 1px solid #dfdbd2;
     border-left: none;
     outline: none;
@@ -152,21 +152,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 10px 0px 10px;
+    padding: 50px 10px 0;
 }
 .parent-container .body .kicks-card .content .image-qr-content img {
     height: 250px;
     width: 250px;
 }
 .parent-container .body .kicks-card .content .info-shoes {
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
 }
 .parent-container .body .kicks-card .content .info-shoes .name {
     font-family: "Orbitron";
     font-size: 25px;
     line-height: 1;
     text-align: center;
-    padding: 20px 10px 10px 10px;
+    padding: 20px 10px 10px;
 }
 .parent-container .body .kicks-card .content .info-shoes p {
     font-family: "Orbitron";
@@ -194,13 +194,7 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-.parent-container
-    .body
-    .kicks-card
-    .content
-    .info-shoes
-    .card-info-white
-    .tittle {
+.parent-container .body .kicks-card .content .info-shoes .card-info-white .tittle {
     color: var(--clr);
     text-align: center;
     text-transform: uppercase;
@@ -215,23 +209,10 @@ body {
     line-height: 1;
     margin-bottom: 10px;
 }
-.parent-container
-    .body
-    .kicks-card
-    .content
-    .info-shoes
-    .card-info-white
-    p.brand {
+.parent-container .body .kicks-card .content .info-shoes .card-info-white p.brand {
     font-size: 17px;
 }
-.parent-container
-    .body
-    .kicks-card
-    .content
-    .info-shoes
-    .card-info-white
-    p
-    span {
+.parent-container .body .kicks-card .content .info-shoes .card-info-white p span {
     font-weight: bold;
 }
 .parent-container .body .kicks-card .content .content-info-two .btn-sale {
@@ -250,7 +231,7 @@ body {
     transition: 0.5s;
 }
 .parent-container .body .kicks-card .content .content-info-two .btn-sale:hover {
-    background: red;
+    background: var(--clr);
     width: 100%;
     padding: 20px;
     font-size: 30px;
@@ -289,9 +270,9 @@ form .tittle-form {
     color: #29fd53;
     font-size: 35px;
     text-align: center;
-    padding: 0px 0px 10px 0px;
+    padding: 0 0 10px;
 }
-form .btn-register{
+form .btn-register {
     padding: 5px;
     background: #222327;
     color: #29fd53;
@@ -316,7 +297,7 @@ form .btn-register:hover,
 .form-group {
     margin-bottom: 5px;
 }
-label{
+label {
     color: white;
 }
 .banner .img-shoe {
@@ -357,15 +338,98 @@ label{
     color: #fff;
 }
 
+/* TABLE */
+.table-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.table{
+    overflow-x: scroll;
+}
+.content-search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #29fd5340;
+    border-radius: 5px;
+}
+.content-search input {
+    flex: 1;
+    width: calc(100% - 100px);
+    padding: 4px;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0px 10px 0px 20px;
+    color: #7bcd8b;
+}
+.content-search input::placeholder {
+    color: #29fd5340;
+}
 
+.content-search button {
+    border: none;
+    background: none;
+    color: #29fd53;
+}
+.content-search button i {
+    width: 40px;
+    padding: 9px;
+}
+table{
+    color: white !important;
+}
+table thead tr{
+    background: #29fd53 !important;
+    color: var(--clr);
+    border: none;
+}
+table tbody tr:hover{
+    color: white !important;
+    background: #ffffff32 !important;
+}
+.button-table{
+    border: none;
+    border-radius: 3px;
+    color:white;
+    border: 2px solid white;
+    background: none;
+}
+.button-table:hover{
+    background: white;
+    color: var(--clr);
+    font-weight: bold;
+}
+.button-table .icon-table{
+    border-radius: 3px;
+    width: 45px;
+    padding: 7px 0px 7px 0px;
+    background: none;
+}
+/* .fa-eye{
+    background: #2b50aa;
+}
+.fa-edit{
+    background: #efe9a8;
+}
+.fa-trash{
+    background: #ff858d;
+}
+.fa-print{
+    background: yellow;
+} */
+
+/* END TABLE */
 
 .parent-container .footer {
     flex-shrink: 0;
     height: 106px;
     width: 100%;
     position: fixed;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     background: var(--clr);
     display: flex;
     justify-content: right;
@@ -384,7 +448,7 @@ label{
     width: 350px;
     position: relative;
     align-items: center;
-    padding: 0px;
+    padding: 0;
 }
 .navigation ul li {
     position: relative;
@@ -422,7 +486,7 @@ label{
     opacity: 0;
     font-weight: 400;
     font-size: 0.75em;
-    letter-spacing: 0, 05em;
+    letter-spacing: 0, 5em;
     transition: 0.5s;
 }
 .navigation ul li.active a .text {
@@ -432,7 +496,7 @@ label{
 .indicator {
     position: absolute;
     top: -50%;
-    left: 0px;
+    left: 0;
     width: 70px;
     height: 70px;
     background: #29fd53;
@@ -460,7 +524,7 @@ label{
     height: 20px;
     background: transparent;
     border-top-left-radius: 22px;
-    box-shadow: -1px -10px 0 0px var(--clr);
+    box-shadow: -1px -10px 0 0 var(--clr);
 }
 .navigation ul li:nth-child(1).active ~ .indicator {
     transform: translateX(calc(70px * 0));
