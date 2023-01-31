@@ -29,10 +29,15 @@
     margin: 0;
 }
 body {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     background: var(--background);
+    width: 100%;
+}
+.body:first-child{
+    background: red;
+    width: 100% !important;
 }
 .parent-container {
     display: flex;
@@ -76,7 +81,7 @@ body {
 .parent-container .body .kicks-card .banner .content-banner {
     height: 100%;
     width: 100%;
-    background-image: url("../img/home/VIJZ-Air-Max-1-Patta-Waves-Design-Transparent-Template.png");
+    background-image: url("../img/home/universe.jpg");
     background-size: cover;
 }
 .parent-container .body .kicks-card .content {
