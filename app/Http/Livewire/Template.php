@@ -11,4 +11,7 @@ class Template extends Component
     {
         return view('livewire.template');
     }
+    public function changeView($newView){
+        $this->view = $newView;
+    }
 }
