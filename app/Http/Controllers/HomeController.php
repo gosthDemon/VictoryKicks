@@ -9,4 +9,7 @@ class HomeController extends Controller
     public function home(){
         return view('home.index');
     }
+    public function new_home(){
+        return view('newHome.template');
+    }
 }

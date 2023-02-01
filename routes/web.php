@@ -22,6 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-
 Route::get('/home', [HomeController::class, "home"])->name('home');
+Route::get('/new_home', [HomeController::class, "new_home"])->name('new_home');
+
 require __DIR__.'/auth.php';
