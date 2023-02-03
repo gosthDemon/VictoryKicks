@@ -1,13 +1,8 @@
+
 <div>
     <div class="parent-container">
-    @switch($view)
-        @case("layouts.new-shoe")
-            @livewire('layouts.new-shoe')
-            @break
-        @case("layouts.sale-shoe")
-            @livewire('layouts.sale-shoe')
-            @break
-    @endswitch
+
+
         <div class="footer">
             <div class="navigation">
                 <ul>

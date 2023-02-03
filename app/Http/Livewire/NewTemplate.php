@@ -7,8 +7,8 @@ use Livewire\Component;
 class NewTemplate extends Component
 {
 
-    public $view = "views.home";
-
+    public $view = "views.sales";
+    protected $listeners = ['changeView' => 'changeView'];
     public function render()
     {
         return view('livewire.new-template');
@@ -17,4 +17,5 @@ class NewTemplate extends Component
     public function changeView($view){
         $this->view = $view;
     }
+
 }
