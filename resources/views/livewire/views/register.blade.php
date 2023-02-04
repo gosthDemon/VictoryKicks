@@ -1,59 +1,152 @@
-<div>
-    <div class="banner">
-        <div class="img-shoe">
-            <div class="file-upload">
-                <img alt="" id="image_shoe">
-                <label for="selected_image_kicks" class="camera-icon">
-                    <i class="fal fa-camera"></i>
-                </label>
-                <input type="file" id="selected_image_kicks" style="display:none">
-            </div>
+<style>
+    #register {
+        color: white;
+        font-family: "Orbitron";
+        padding: 0px 20px 20px 20px;
+    }
+    #register .image-shoe {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+    }
+    #image_shoe {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+        border-image-outset: 0;
+        border-image-source: none
+    }
+    img[src=""] {
+        display: none;
+    }
+    img:not([src=""]) + .camera-icon  {
+        background-color: #29fd534a;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 50px;
+        padding: 50px;
+        color: #fff;
+    }
+    .file-upload {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #register .camera-icon {
+        background-color: #29fd5367;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 50px;
+        padding: 50px;
+        color:var(--clr);
+        border: 5px solid #22232784;
+    }
+    #register .tittle {
+        text-align: center;
+        padding: 10px;
+    }
+
+    #register .form .register-button {
+        background: #29fd53;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+    }
+</style>
+<div class="views">
+    <div class="content" id="register">
+        <div class="tittle">
+            <h2>Shoe Registration Form</h2>
         </div>
-    </div>
-    <div class="content">
-        <form action="">
-            <div class="row">
-                <div class="tittle-form col-12">
-                    Register new shoe
+        <form action="" class="row">
+            <div class="image-shoe col-md-4">
+                <div class="file-upload">
+                    <img alt="" src="" id="image_shoe">
+                    <label for="selected_image_kicks" class="camera-icon">
+                        <i class="fal fa-camera"></i>
+                    </label>
+                    <input type="file" id="selected_image_kicks" style="display:none">
                 </div>
-                <div class="form-group col-md-12">
-                    <label for="name">Name:</label>
-                    <input type="password" class="form-control" id="name" name="name">
+            </div>
+            <div class="form col-md-8">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <label for="name">Name/Model:</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="code">Code:</label>
+                        <input type="text" class="form-control" id="code" name="code">
+                    </div>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="price_buy">Buy in:</label>
-                    <input type="number" class="form-control" id="price_buy" name="price_buy">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="buy_in">Buy in:</label>
+                        <input type="text" class="form-control" id="buy_in" name="buy_in">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="minimum_price">Minimum price</label>
+                        <input type="text" class="form-control" id="minimum_price" name="minimum_price">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="sale_price">Sale Price</label>
+                        <input type="text" class="form-control" id="sale_price" name="sale_price">
+                    </div>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="minimum_price">Minimum Price:</label>
-                    <input type="number" class="form-control" id="minimum_price" name="minimum_price">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="brand">Brand:</label>
+                        <input type="text" class="form-control" id="brand" name="brand">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="color">Color</label>
+                        <input type="text" class="form-control" id="color" name="color">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="size">Size</label>
+                        <input type="text" class="form-control" id="size" name="size">
+                    </div>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="sale_price">Price:</label>
-                    <input type="number" class="form-control" id="sale_price" name="sale_price">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description">
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="brand">Brand:</label>
-                    <input type="text" class="form-control" id="brand" name="brand">
-                </div>
-                <div class="form-group col-md-8">
-                    <label for="model">Model:</label>
-                    <input type="text" class="form-control" id="model" name="model">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="code">Code:</label>
-                    <input type="text" class="form-control" id="code" name="code">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="size">Size:</label>
-                    <input type="text" class="form-control" id="size" name="size">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="colors">Color:</label>
-                    <input type="text" class="form-control" id="colors" name="colors">
-                </div>
-                <button class="col-md-10 mx-auto  btn-register">New Registration</button>
+                <button class="register-button">Registrar</button>
             </div>
         </form>
     </div>
 </div>
+<script>
+    selectedImage.addEventListener('change', () => {
+        if (selectedImage.files.length > 0) {
+            var image = selectedImage.files[0];
+            var imageURL = URL.createObjectURL(image);
+            image_shoe.src = imageURL;
+        }
+    });
+</script>

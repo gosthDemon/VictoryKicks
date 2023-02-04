@@ -15,10 +15,9 @@
     {{-- <link rel="stylesheet" href="{{ URL::asset('css/kick.css') }}"> --}}
 </head>
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900 &display=swap");
-
+    @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
     :root {
-        --clr: #22232737;
+        --clr: #222327;
     }
 
     /* width */
@@ -49,16 +48,17 @@
         padding: 0;
         margin: 0;
     }
-
     .parent-container{
         background: var(--clr);
-        background: red;
         display: block;
         height: calc(100vh - 105px);
     }
-    .parent-container:first-child{
-        background: var(--clr);
-        background: green;
+    .parent-container .template{
+        height: 100%;
+    }
+    .parent-container .template .views{
+        height: 100%;
+        overflow: auto;
     }
     .parent-container .footer {
         flex-shrink: 0;
