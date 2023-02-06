@@ -1,32 +1,14 @@
-<style>
-    #records {
-        color: white !important;
-        font-family: "Orbitron";
-    }
 
-    #records .tittle {
-        text-align: center;
-        padding: 10px;
-    }
-
-    #records .content-table {
-        overflow-x: scroll;
-    }
-
-    th {
-        color: #29fd53;
-        white-space: nowrap
-    }
-
-    td,
-    tr {
-        color: white
-    }
-</style>
 <div class="views">
     <div class="content" id="records">
         <div class="tittle">
             <h2>Registered slippers</h2>
+        </div>
+        <div class="search-content">
+            <input type="text" wire:model="search" name="search" id="search">
+            <button data-toggle="modal" data-target="#contentScanner">
+                <i class="fal fa-qrcode"></i>
+            </button>            
         </div>
         <div class="content-table">
             <table class="table table-hover">
@@ -45,42 +27,684 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @forEach($products as $product)
                     <tr>
-                        <td>S001</td>
-                        <td>Running Shoe X</td>
-                        <td>$50</td>
-                        <td>$60</td>
-                        <td>$70</td>
-                        <td>Brand A</td>
-                        <td>Red</td>
-                        <td>8</td>
-                        <td>Lightweight running shoe with excellent support and cushioning</td>
+                        <td>{{$product->code}}</td>
+                        <td class="not-wrap">{{$product->name}}</td>
+                        <td class="not-wrap">{{$product->buy_price}}.00 $us</td>
+                        <td class="not-wrap">{{$product->minimum_price}}.00 $us</td>
+                        <td class="not-wrap">{{$product->sale_price}}.00 $us</td>
+                        <td>{{$product->brand}}</td>
+                        <td class="not-wrap">{{$product->colors}}</td>
+                        <td>{{$product->size}}</td>
+                        <td>{{$product->description}}</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
                     </tr>
+                    @endforeach
                     <tr>
-                        <td>S002</td>
-                        <td>Basketball Shoe Y</td>
-                        <td>$70</td>
-                        <td>$80</td>
-                        <td>$90</td>
-                        <td>Brand B</td>
-                        <td>Blue</td>
-                        <td>9</td>
-                        <td>High-top basketball shoe with excellent ankle support and traction</td>
-                    </tr>
-                    <tr>
-                        <td>S003</td>
-                        <td>Walking Shoe Z</td>
-                        <td>$40</td>
-                        <td>$50</td>
-                        <td>$60</td>
-                        <td>Brand C</td>
-                        <td>Gray</td>
-                        <td>7</td>
-                        <td>Comfortable walking shoe with a breathable upper and padded insole</td>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td class="not-wrap">Air Force Jordan 1</td>
+                        <td class="not-wrap">234.00 $us</td>
+                        <td class="not-wrap">345.00 $us</td>
+                        <td class="not-wrap">545.00 $us</td>
+                        <td>nike</td>
+                        <td class="not-wrap">red</td>
+                        <td>m</td>
+                        <td>not have description</td>
+                        <td class="not-wrap">
+                            <a href="" class="action-button show"><i class="far fa-eye"></i></a>
+                            <a href="" class="action-button edit"><i class="far fa-edit"></i></a>
+                            <a href="" class="action-button trash"><i class="far fa-trash"></i></a>
+                            <a href="" class="action-button pdf"><i class="far fa-file-pdf"></i></a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-

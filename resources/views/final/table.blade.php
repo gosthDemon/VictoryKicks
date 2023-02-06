@@ -16,6 +16,7 @@
 </head>
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+
     :root {
         --clr: #222327;
     }
@@ -48,18 +49,22 @@
         padding: 0;
         margin: 0;
     }
-    .parent-container{
+
+    .parent-container {
         background: var(--clr);
         display: block;
         height: calc(100vh - 105px);
     }
-    .parent-container .template{
+
+    .parent-container .template {
         height: 100%;
     }
-    .parent-container .template .views{
+
+    .parent-container .views {
         height: 100%;
         overflow: auto;
     }
+
     .parent-container .footer {
         flex-shrink: 0;
         height: 106px;
@@ -72,6 +77,7 @@
         justify-content: right;
         align-items: flex-end;
     }
+
     .navigation {
         width: 100%;
         height: 70px;
@@ -193,16 +199,106 @@
     .navigation ul li:nth-child(5).active~.indicator {
         transform: translateX(calc(70px * 4));
     }
+
+    #records {
+        color: white !important;
+        font-family: "Orbitron";
+        padding: 10px;
+        overflow-y:scroll; 
+    }
+
+    #records .tittle {
+        text-align: center;
+        padding: 10px;
+    }
+
+    #records .content-table {
+        overflow-x: scroll;
+    }
+
+    th {
+        color: #29fd53;
+        white-space: nowrap
+    }
+
+    .not-wrap {
+        white-space: nowrap
+    }
+
+    tr {
+        color: white
+    }
+    tr:hover {
+        color: white !important;
+        background: #ffffff28 !important;
+    }
+
+    .search-content {
+        margin: 10px 0px 10px 0px;
+        background: rgba(0, 0, 255, 0);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border: 2px solid #e1e1e1;
+        border-radius: 3px;
+    }
+
+    .search-content input {
+        width: calc(100% - 60px);
+        height: 35px;
+        background: #00000000;
+        border: none;
+        padding-left: 20px;
+        color: white;
+        outline: none;
+    }
+
+    .search-content button {
+        background: rgba(255, 0, 0, 0);
+        width: 60px;
+        font-size: 22px;
+        border: none;
+        height: 35px;
+        color: #29fd53;
+
+    }
+    .action-button{
+        height: 40px;
+        width: 40px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+        background: white;
+        color: var(--clr)
+    }
+    .action-button:hover{
+        padding: 10px 10px 10px 10px;
+    }
+    .action-button:hover i{
+        color: var(--clr);
+    }
+    
+    .show{
+        background: #0087d1;
+    }
+    .edit{
+        background: #e1b94f;
+    }
+    .trash{
+        background: #d93c41;
+    }
+    .pdf{
+        background: #d93c41;
+    }
+
 </style>
 
 <body>
-
     <div class="parent-container">
-            @livewire('new-template')
+        @livewire('views.sales')
         <div class="footer">
             <div class="navigation">
                 <ul>
-                    <li class="list active" onclick="changeView('views.sales')">
+                    <li class="list">
                         <a href="#">
                             <span class="icon">
                                 <i class="far fa-home"></i>
@@ -211,7 +307,7 @@
                                 Home</span>
                         </a>
                     </li>
-                    <li class="list" onclick="changeView('views.register')">
+                    <li class="list">
                         <a href="#">
                             <span class="icon">
                                 <i class="fad fa-edit"></i>
@@ -220,7 +316,7 @@
                                 Register/Buy</span>
                         </a>
                     </li>
-                    <li class="list" onclick="changeView('views.show')">
+                    <li class="list active">
                         <a href="#">
                             <span class="icon">
                                 <i class="fad fa-list"></i>
@@ -229,7 +325,7 @@
                                 Items</span>
                         </a>
                     </li>
-                    <li class="list" onclick="changeView('views.sales')">
+                    <li class="list">
                         <a href="#">
                             <span class="icon">
                                 <i class="fad fa-bags-shopping"></i>
@@ -252,7 +348,33 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="contentScanner" tabindex="-1" aria-labelledby="contentScannerLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contentScannerLabel">
+                        Modal title
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="main">
+                        <div id="reader"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        Save changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="{{ URL::asset('js/html5-qrcode.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -265,12 +387,7 @@
         let image = document.getElementById("image_shoe");
         let boxRender = document.getElementById("reader");
         let scanner;
-        function changeView(view) {
-            Livewire.emit("changeView", view);
-        }
-        function search(search) {
-            Livewire.emit("search", search);
-        }
+
         if (boxRender) {
             scanner = new Html5QrcodeScanner('reader', {
                 qrbox: {
@@ -290,7 +407,7 @@
         });
 
         function success(result) {
-            console.log(result);
+            document.getElementById('search').value = result;
             scanner.clear();
             $('#contentScanner').modal('hide');
         }
@@ -304,8 +421,6 @@
         list.forEach((item) => {
             item.addEventListener("click", activeLink);
         });
-
-
     </script>
     @livewireScripts
 </body>

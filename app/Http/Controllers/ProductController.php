@@ -12,6 +12,20 @@ use BaconQrCode\Writer;
 class ProductController extends Controller
 {
     public function save(Request $request){
+        $oldImage = session()->get('oldImage');
+        $validated = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'name' => 'required|max:50',
+            'code' => 'required|max:15',
+            'buy_in' => 'required|max:12',
+            'minimum_price' => 'required|max:12',
+            'sale_price' => 'required|max:12',
+            'brand' => 'required|max:20',
+            'colors' => 'required|max:20',
+            'size' => 'required|max:5',
+            'description' => 'max:200'
+        ]);
+        
 
         $name_image = round(microtime(true) * 1000);
         $extension = $request->file('image')->extension();
@@ -26,6 +40,10 @@ class ProductController extends Controller
         $writer = new Writer($renderer);
         $writer->writeFile($name_image, '../storage/app/public/images/'.$name_image.'/QRCode.png');
         //VERIFICAR CUAL ES LA RUTA QUE SIRVE PARA MOSTRAR LA IMAGEN
+        
+        $buy_in = str_replace(" \$us", "", $request->buy_in);
+        $minimum_price = str_replace(" \$us", "", $request->minimum_price);
+        $sale_price = str_replace(" \$us", "", $request->sale_price);
 
         DB::beginTransaction();
         try {
@@ -33,16 +51,18 @@ class ProductController extends Controller
                 ->insert([
                     'name' => $request->name,
                     'code' => $request->code,
-                    'buy_price' => $request->buy_in,
-                    'minimum_price' => $request->minimum_price,
-                    'sale_price' => $request->sale_price,
-                    'qr_code' => "",
-                    'qr_image' => "",
+                    'buy_price' => $buy_in,
+                    'minimum_price' => $minimum_price,
+                    'sale_price' => $sale_price,
+                    'qr_code' => $name_image,
+                    'qr_image' => 'public/images/'.$name_image.'/.qrcode.png',
                     'image' => $name_to_save,
                     'brand' => $request->brand,
                     'colors' => $request->colors,
                     'size' => $request->size,
-                    'description' => $request->description
+                    'description' => $request->description,
+                    'created_at' => now(),
+                    'updated_at' => now()
                 ]);
 
             DB::commit();
@@ -52,5 +72,10 @@ class ProductController extends Controller
             return $th;
             DB::rollBack();
         }
+
+        return back();
+    }
+    public function showProducts(){
+        return view('final.table');
     }
 }
