@@ -1,5 +1,6 @@
 <div class="template">
-    @switch ($view) 
+    {{$view}}
+    @switch ($view)
         @case ('views.home')
             @livewire('views.home')
             @break

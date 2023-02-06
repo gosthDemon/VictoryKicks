@@ -83,21 +83,22 @@
         <div class="tittle">
             <h2>Shoe Registration Form</h2>
         </div>
-        <form action="" class="row">
+        <form action="{{route('saveProduct')}}" method="POST" enctype="multipart/form-data" class="row">
+            @csrf
             <div class="image-shoe col-md-4">
                 <div class="file-upload">
                     <img alt="" src="" id="image_shoe">
                     <label for="selected_image_kicks" class="camera-icon">
                         <i class="fal fa-camera"></i>
                     </label>
-                    <input type="file" id="selected_image_kicks" style="display:none">
+                    <input type="file" id="selected_image_kicks" name="image" accept="image/*" style="display:none">
                 </div>
             </div>
             <div class="form col-md-8">
                 <div class="row">
                     <div class="form-group col-md-8">
                         <label for="name">Name/Model:</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name"  name="name">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="code">Code:</label>
@@ -121,11 +122,11 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="brand">Brand:</label>
-                        <input type="text" class="form-control" id="brand" name="brand">
+                        <input type="text" class="form-control" id="brand"name="brand">
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="color">Color</label>
-                        <input type="text" class="form-control" id="color" name="color">
+                        <label for="colors">Colors</label>
+                        <input type="text" class="form-control" id="colors" name="colors">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="size">Size</label>
@@ -136,17 +137,18 @@
                     <label for="description">Description</label>
                     <input type="text" class="form-control" id="description" name="description">
                 </div>
-                <button class="register-button">Registrar</button>
+                <button class="register-button" >Registrar</button>
             </div>
         </form>
     </div>
+    <script>
+        let selectedImage = document.getElementById("selected_image_kicks");
+        selectedImage.addEventListener('change', () => {
+            if (selectedImage.files.length > 0) {
+                var image = selectedImage.files[0];
+                var imageURL = URL.createObjectURL(image);
+                image_shoe.src = imageURL;
+            }
+        });
+    </script>
 </div>
-<script>
-    selectedImage.addEventListener('change', () => {
-        if (selectedImage.files.length > 0) {
-            var image = selectedImage.files[0];
-            var imageURL = URL.createObjectURL(image);
-            image_shoe.src = imageURL;
-        }
-    });
-</script>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/home', [HomeController::class, "home"])->name('home');
 Route::get('/new_home', [HomeController::class, "new_home"])->name('new_home');
+
+Route::POST('/save', [ProductController::class, "save"])->name('saveProduct');
 
 require __DIR__.'/auth.php';

@@ -202,7 +202,7 @@
         <div class="footer">
             <div class="navigation">
                 <ul>
-                    <li class="list active" onclick="changeView('views.home')">
+                    <li class="list active" onclick="changeView('views.sales')">
                         <a href="#">
                             <span class="icon">
                                 <i class="far fa-home"></i>
@@ -262,10 +262,12 @@
     </script>
     <script>
         const list = document.querySelectorAll(".list");
-        let selectedImage = document.getElementById("selected_image_kicks");
         let image = document.getElementById("image_shoe");
         let boxRender = document.getElementById("reader");
         let scanner;
+        function changeView(view) {
+            Livewire.emit("changeView", view);
+        }
         if (boxRender) {
             scanner = new Html5QrcodeScanner('reader', {
                 qrbox: {
@@ -299,36 +301,8 @@
         list.forEach((item) => {
             item.addEventListener("click", activeLink);
         });
-        // Selected Image Form
-        selectedImage.addEventListener('change', () => {
-            if (selectedImage.files.length > 0) {
-                var image = selectedImage.files[0];
-                var imageURL = URL.createObjectURL(image);
-                image_shoe.src = imageURL;
-            }
-        });
 
-        // TABLE
 
-        $(document).ready(function() {
-            $('#example').DataTable({
-                responsive: {
-                    details: {
-                        type: 'column'
-                    }
-                },
-                columnDefs: [{
-                    className: 'dtr-control',
-                    orderable: false,
-                    targets: 0
-                }],
-                order: [1, 'asc']
-            });
-        });
-
-        function changeView(view) {
-            Livewire.emit("changeView", view);
-        }
     </script>
     @livewireScripts
 </body>
