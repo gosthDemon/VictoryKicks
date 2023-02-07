@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
             $table->string('image');
             $table->string('size');
             $table->string('colors');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

@@ -194,9 +194,7 @@
         transform: translateX(calc(70px * 4));
     }
 </style>
-
 <body>
-
     <div class="parent-container">
             @livewire('new-template')
         <div class="footer">

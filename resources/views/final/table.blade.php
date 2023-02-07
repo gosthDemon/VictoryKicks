@@ -204,7 +204,7 @@
         color: white !important;
         font-family: "Orbitron";
         padding: 10px;
-        overflow-y:scroll; 
+        overflow-y: scroll;
     }
 
     #records .tittle {
@@ -228,6 +228,7 @@
     tr {
         color: white
     }
+
     tr:hover {
         color: white !important;
         background: #ffffff28 !important;
@@ -262,7 +263,8 @@
         color: #29fd53;
 
     }
-    .action-button{
+
+    .action-button {
         height: 40px;
         width: 40px;
         padding: 5px 10px 5px 10px;
@@ -270,26 +272,30 @@
         background: white;
         color: var(--clr)
     }
-    .action-button:hover{
+
+    .action-button:hover {
         padding: 10px 10px 10px 10px;
     }
-    .action-button:hover i{
+
+    .action-button:hover i {
         color: var(--clr);
     }
-    
-    .show{
+
+    .show {
         background: #0087d1;
     }
-    .edit{
+
+    .edit {
         background: #e1b94f;
     }
-    .trash{
-        background: #d93c41;
-    }
-    .pdf{
+
+    .trash {
         background: #d93c41;
     }
 
+    .pdf {
+        background: #d93c41;
+    }
 </style>
 
 <body>
@@ -335,7 +341,7 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a href="#">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#edit_modal">
                             <span class="icon">
                                 <i class="fad fa-cog"></i>
                             </span>
@@ -375,6 +381,25 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @livewire('views.edit')
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="{{ URL::asset('js/html5-qrcode.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -407,7 +432,10 @@
         });
 
         function success(result) {
-            document.getElementById('search').value = result;
+            let search = document.getElementById('search');
+            search.value = "";
+            search.value = result;
+            Livewire.emit('searchProduct', result);
             scanner.clear();
             $('#contentScanner').modal('hide');
         }
@@ -421,6 +449,8 @@
         list.forEach((item) => {
             item.addEventListener("click", activeLink);
         });
+
+        //EDIT
     </script>
     @livewireScripts
 </body>

@@ -11,6 +11,7 @@ class Sales extends Component
     
     public $search ="";
 
+    public $listeners = ['searchProduct', 'searchProduct'];
     public function render()
     {
         return view('livewire.views.sales',[
@@ -29,6 +30,9 @@ class Sales extends Component
         ->get();
 
         return $products;
+    }
+    public function searchProduct($value){
+        $this->search = $value;
     }
 
 }
