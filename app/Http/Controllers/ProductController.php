@@ -20,7 +20,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|max:50',
-            'code' => 'required|max:15',
+            'code' => 'required|max:15|unique:Products,$id',
             'buy_in' => 'required|max:12',
             'minimum_price' => 'required|max:12',
             'sale_price' => 'required|max:12',
