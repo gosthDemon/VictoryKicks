@@ -282,6 +282,11 @@
     }
 
     .show {
+        background: rgba(34, 35, 39, 0.1);
+        backdrop-filter: blur(10px) !important;
+    }
+
+    .show-button {
         background: #0087d1;
     }
 
@@ -296,9 +301,13 @@
     .pdf {
         background: #d93c41;
     }
+
+    /*MODAL*/
+    .modal-body {}
 </style>
 
 <body>
+    {{$errors}}
     <div class="parent-container">
         @livewire('views.sales')
         <div class="footer">
@@ -382,20 +391,15 @@
         </div>
     </div>
     <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editLabel">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     @livewire('views.edit')
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -452,6 +456,7 @@
 
         //EDIT
     </script>
+    @yield('scripts')
     @livewireScripts
 </body>
 

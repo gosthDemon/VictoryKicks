@@ -27,6 +27,7 @@ Route::get('/home', [HomeController::class, "home"])->name('home');
 Route::get('/new_home', [HomeController::class, "new_home"])->name('new_home');
 
 Route::POST('/save', [ProductController::class, "save"])->name('saveProduct');
+Route::POST('/update', [ProductController::class, "update"])->name('updateProduct');
 
 
 Route::get('/products', [ProductController::class, "showProducts"])->name('showProducts');

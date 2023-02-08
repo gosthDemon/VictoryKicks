@@ -260,7 +260,6 @@
     </script>
     <script>
         const list = document.querySelectorAll(".list");
-        let image = document.getElementById("image_shoe");
         let boxRender = document.getElementById("reader");
         let scanner;
         function changeView(view) {
