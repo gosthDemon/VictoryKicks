@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
     <title> Victory Kicks</title>
     @livewireStyles
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -307,7 +310,7 @@
 </style>
 
 <body>
-    {{$errors}}
+    {{ $errors }}
     <div class="parent-container">
         @livewire('views.sales')
         <div class="footer">
@@ -411,6 +414,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         const list = document.querySelectorAll(".list");
         let image = document.getElementById("image_shoe");
@@ -454,7 +458,11 @@
             item.addEventListener("click", activeLink);
         });
 
-        //EDIT
+        //Delete Product
+        function deleteThis(product_id){
+            Livewire.emit('deleteProduct', product_id);
+        }
+
     </script>
     @yield('scripts')
     @livewireScripts

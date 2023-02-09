@@ -8,16 +8,14 @@ use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\Image\ImagickImageBackEnd;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
-use Exception;
-use GuzzleHttp\Psr7\Message;
-use PhpParser\Node\Stmt\Catch_;
-use PhpParser\Node\Stmt\TryCatch;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
-    public function save(Request $request){
-        $product_id = $request->id;
-        $validated = $request->validate([
+    public function save(Request $request)
+    {
+        Validator::make($request->all(), [
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|max:50',
             'code' => 'required|max:15|unique:Products,$id',
@@ -29,22 +27,19 @@ class ProductController extends Controller
             'size' => 'required|max:5',
             'description' => 'max:200'
         ]);
-        
 
         $name_image = round(microtime(true) * 1000);
         $extension = $request->file('image')->extension();
-        $request->file('image')->storeAs('public/images/'.$name_image."/", "sneaker.".$extension);
-        $name_to_save = 'public/images/'.$name_image.'/sneaker.'.$extension;
-        $url_image = "storage/images/".$name_image.'sneaker.'.$extension;
-        // 'public/images/'.$name_image.'/qrCode.png'
+        $request->file('image')->storeAs('public/images/' . $name_image . "/", "sneaker." . $extension);
+        $url_image = "storage/images/" . $name_image . 'sneaker.' . $extension;
+        //QR GENERATOR -> Funciona con Imagick
         $renderer = new ImageRenderer(
             new RendererStyle(400),
             new ImagickImageBackEnd()
         );
         $writer = new Writer($renderer);
-        $writer->writeFile($name_image, '../storage/app/public/images/'.$name_image.'/QRCode.png');
-        //VERIFICAR CUAL ES LA RUTA QUE SIRVE PARA MOSTRAR LA IMAGEN
-        
+        $writer->writeFile($name_image, '../storage/app/public/images/' . $name_image . '/QRCode.png');
+
         $buy_in = str_replace(" \$us", "", $request->buy_in);
         $minimum_price = str_replace(" \$us", "", $request->minimum_price);
         $sale_price = str_replace(" \$us", "", $request->sale_price);
@@ -58,7 +53,7 @@ class ProductController extends Controller
                     'minimum_price' => $minimum_price,
                     'sale_price' => $sale_price,
                     'qr_code' => $name_image,
-                    'qr_image' => 'storage/images/'.$name_image.'/qrcode.png',
+                    'qr_image' => 'storage/images/' . $name_image . '/qrcode.png',
                     'image' => $url_image,
                     'brand' => $request->brand,
                     'colors' => $request->colors,
@@ -71,34 +66,72 @@ class ProductController extends Controller
             DB::commit();
         } catch (\Throwable $th) {
             //throw $th;
-
-            return $th;
             DB::rollBack();
+            return $th;
         }
 
         return back();
     }
-    public function showProducts(){
+    public function showProducts()
+    {
         return view('pages.table');
     }
-    public function update(Request $request){
-    
-            $validate = $request->validate([
-                'name' => 'required|max:50',
-                'code' => ['required','max:15',Rule::unique('products')->ignore($id)],
-                'buy_in' => 'required|max:12',
-                'minimum_price' => 'required|max:12',
-                'sale_price' => 'required|max:12',
-                'brand' => 'required|max:20',
-                'colors' => 'required|max:20',
-                'size' => 'required|max:5',
-                'description' => 'max:200'
-            ]);
+    public function update(Request $request)
+    {
+        Validator::make($request->all(), [
+            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'name' => 'required|max:50',
+            'code' => [
+                'required',
+                Rule::unique('products')->ignore($request->id),
+            ],
+            'buy_in' => 'required|max:12',
+            'minimum_price' => 'required|max:12',
+            'sale_price' => 'required|max:12',
+            'brand' => 'required|max:20',
+            'colors' => 'required|max:20',
+            'size' => 'required|max:5',
+            'description' => 'max:200'
+        ]);
 
+        $this_product = DB::Table('products')->where('id', '=', $request->id)->first();
+        $url_image = $this_product->image;
+        if ($request->image != null) {
+            date_default_timezone_set('America/Los_Angeles');
+            $today = date("Ymd-His");
+            $name_file = "sneaker-" . $today;
+            $extension = $request->file('image')->extension();
+            $request->file('image')->storeAs('public/images/' . $this_product->qr_code . "/", $name_file."." . $extension);
+            $url_image = "storage/images/".$this_product->qr_code ."/".$name_file.".".$extension;
+        }
+        $buy_in = str_replace(" \$us", "", $request->buy_in);
+        $minimum_price = str_replace(" \$us", "", $request->minimum_price);
+        $sale_price = str_replace(" \$us", "", $request->sale_price);
+        DB::beginTransaction();
+        try {
+            DB::table('products')
+            ->where('id', '=',$request->id)
+                ->update([
+                    'name' => $request->name,
+                    'code' => $request->code,
+                    'buy_price' => $buy_in,
+                    'minimum_price' => $minimum_price,
+                    'sale_price' => $sale_price,
+                    'image' => $url_image,
+                    'brand' => $request->brand,
+                    'colors' => $request->colors,
+                    'size' => $request->size,
+                    'description' => $request->description,
+                    'updated_at' => now()
+                ]);
 
-        
+            DB::commit();
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollBack();
+            return $request->buy_in;
+        }
+
+        return back();
     }
 }
-
-
-

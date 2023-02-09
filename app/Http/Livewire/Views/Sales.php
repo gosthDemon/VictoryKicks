@@ -11,7 +11,10 @@ class Sales extends Component
     
     public $search ="";
 
-    public $listeners = ['searchProduct', 'searchProduct'];
+    public $listeners = [
+        'searchProduct' => 'searchForProduct',
+        'deleteProduct' => 'removeProduct'
+    ];
     public function render()
     {
         return view('livewire.views.sales',[
@@ -21,6 +24,7 @@ class Sales extends Component
 
     public function getProducts(){
         $products =  DB::table('products')
+        ->where('estatus','=',1)
         ->where('code','LIKE','%'.$this->search.'%')
         ->orwhere('name','LIKE','%'.$this->search.'%')
         ->orwhere('brand','LIKE','%'.$this->search.'%')
@@ -31,8 +35,17 @@ class Sales extends Component
 
         return $products;
     }
+
     public function searchProduct($value){
         $this->search = $value;
+    }
+
+    public function removeProduct($id){
+        DB::Table('products')
+        ->where('id','=',$id)
+        ->update(['estatus','=',0]);
+
+        $this->getProducts();
     }
 
 }
