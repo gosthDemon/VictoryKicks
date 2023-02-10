@@ -8,8 +8,8 @@ use Livewire\Component;
 
 class Sales extends Component
 {
-    
-    public $search ="";
+
+    public $search = "";
 
     public $listeners = [
         'searchProduct' => 'searchForProduct',
@@ -17,35 +17,38 @@ class Sales extends Component
     ];
     public function render()
     {
-        return view('livewire.views.sales',[
-            'products'=>$this->getProducts()
+        return view('livewire.views.sales', [
+            'products' => $this->getProducts()
         ]);
     }
 
-    public function getProducts(){
-        $products =  DB::table('products')
-        ->where('estatus','=',1)
-        ->where('code','LIKE','%'.$this->search.'%')
-        ->orwhere('name','LIKE','%'.$this->search.'%')
-        ->orwhere('brand','LIKE','%'.$this->search.'%')
-        ->orwhere('colors','LIKE','%'.$this->search.'%')
-        ->orwhere('size','LIKE','%'.$this->search.'%')
-        ->orwhere('qr_code','LIKE','%'.$this->search.'%')
-        ->get();
-
+    public function getProducts()
+    {
+        $products = DB::table('products')
+            ->where('status', '!=', 'Disabled')
+            ->where(function ($query) {
+                $query->where('code', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('name', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('brand', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('colors', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('size', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('qr_code', 'LIKE', '%' . $this->search . '%');
+            })
+            ->get();
         return $products;
     }
 
-    public function searchProduct($value){
+    public function searchProduct($value)
+    {
         $this->search = $value;
     }
 
-    public function removeProduct($id){
+    public function removeProduct($id)
+    {
         DB::Table('products')
-        ->where('id','=',$id)
-        ->update(['estatus','=',0]);
+            ->where('id', '=', $id)
+            ->update(['status'=>'Disabled']);
 
         $this->getProducts();
     }
-
 }

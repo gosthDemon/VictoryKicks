@@ -31,7 +31,7 @@ class ProductController extends Controller
         $name_image = round(microtime(true) * 1000);
         $extension = $request->file('image')->extension();
         $request->file('image')->storeAs('public/images/' . $name_image . "/", "sneaker." . $extension);
-        $url_image = "storage/images/" . $name_image . 'sneaker.' . $extension;
+        $url_image = "storage/images/" . $name_image . '/sneaker.' . $extension;
         //QR GENERATOR -> Funciona con Imagick
         $renderer = new ImageRenderer(
             new RendererStyle(400),
@@ -59,6 +59,7 @@ class ProductController extends Controller
                     'colors' => $request->colors,
                     'size' => $request->size,
                     'description' => $request->description,
+                    'status' => 'OnSold',
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);

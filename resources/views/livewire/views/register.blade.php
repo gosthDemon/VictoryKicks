@@ -101,12 +101,10 @@
                 <button class="register-button">Registrar</button>
             </div>
         </form>
-    </div>
-    @section('scripts')
         <script>
             let selectedImage = document.getElementById("selected_image_kicks");
             let image_shoe = document.getElementById("image_shoe");
-            alert('sdf');
+
             selectedImage.addEventListener('change', () => {
                 if (selectedImage.files.length > 0) {
                     var image = selectedImage.files[0];
@@ -115,19 +113,19 @@
                 }
             });
             let inputs = document.querySelectorAll(".number");
-    
+
             inputs.forEach(input => {
                 input.addEventListener("input", function() {
-    
+
                     if (input.value.length > 5) {
                         input.value = input.value.slice(0, 12);
                     }
-    
+
                     this.value = this.value.replace(/[^\d]/g, "") + " $us";
                 });
             });
         </script>
-    @endsection
+    </div>
 </div>
 <style>
     #register {

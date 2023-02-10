@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->string('size');
             $table->string('colors');
             $table->string('description')->nullable();
+            $table->string('status')->comment("Los estados pueden ser Disabled, Sold, OnSale");
             $table->timestamps();
         });
     }

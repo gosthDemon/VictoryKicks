@@ -27,7 +27,7 @@
     /* width */
     ::-webkit-scrollbar {
         width: 0;
-        height: 0px;
+        height: 6px;
     }
 
     /* Track */
@@ -66,6 +66,7 @@
     .parent-container .views {
         height: 100%;
         overflow: auto;
+        padding: 10px
     }
 
     .parent-container .footer {
@@ -305,12 +306,32 @@
         background: #d93c41;
     }
 
+    a {
+        cursor: pointer;
+    }
+
     /*MODAL*/
-    .modal-body {}
+    .swal2-modal{
+        background: var(--clr) !important;
+    }
+    .swal2-icon{
+        border: solid #29fd53 3px !important;
+    }
+    .swal2-icon-content{
+        color: #29fd53 !important;
+    }
+    .swal2-title{
+        color: white!important;
+    }
+    .swal2-html-container{
+        color: white!important;
+    }
+    .swal2-confirm{
+        color: var(--clr) !important;
+    }
 </style>
 
 <body>
-    {{ $errors }}
     <div class="parent-container">
         @livewire('views.sales')
         <div class="footer">
@@ -407,6 +428,20 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="showProduct" tabindex="-1" aria-labelledby="showProductLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @livewire('views.show-one')
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="{{ URL::asset('js/html5-qrcode.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -459,10 +494,22 @@
         });
 
         //Delete Product
-        function deleteThis(product_id){
-            Livewire.emit('deleteProduct', product_id);
-        }
+        function deleteThis(product_id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#32c04e',
+                cancelButtonColor: '#d93c41',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('deleteProduct', product_id);
+                }
+            })
 
+        }
     </script>
     @yield('scripts')
     @livewireScripts
