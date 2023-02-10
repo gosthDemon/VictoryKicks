@@ -34,7 +34,7 @@ class ProductController extends Controller
         $url_image = "storage/images/" . $name_image . '/sneaker.' . $extension;
         //QR GENERATOR -> Funciona con Imagick
         $renderer = new ImageRenderer(
-            new RendererStyle(400),
+            new RendererStyle(1000),
             new ImagickImageBackEnd()
         );
         $writer = new Writer($renderer);

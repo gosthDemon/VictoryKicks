@@ -39,7 +39,7 @@
                         <td>{{$product->size}}</td>
                         <td>{{$product->description}}</td>
                         <td class="not-wrap">
-                            <a class="action-button show-button"  data-toggle="modal" data-target="#showProduct" wire:click="$emit('showProduct', { product_id: {{$product->id}} })"><i class="far fa-eye"></i></a>
+                            <a class="action-button show-button"  data-toggle="modal" data-target="#showProduct" wire:click="$emit('getProductShow', { product_id: {{$product->id}} })"><i class="far fa-eye"></i></a>
                             <a class="action-button edit" data-toggle="modal" data-target="#edit" wire:click="$emit('getProductEdit', { product_id: {{$product->id}} })"><i class="far fa-edit"></i></a>
                             <a class="action-button trash" onclick="deleteThis({{$product->id}})"><i class="far fa-trash"></i></a>
                             <a class="action-button pdf"><i class="far fa-file-pdf"></i></a>

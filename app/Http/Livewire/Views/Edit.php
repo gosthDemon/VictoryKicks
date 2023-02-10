@@ -2,9 +2,8 @@
 
 namespace App\Http\Livewire\Views;
 
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-
+use Illuminate\Support\Facades\DB;
 class Edit extends Component
 {
     protected $listeners = ['getProductEdit', 'getProductEdit'];
@@ -18,7 +17,6 @@ class Edit extends Component
         $product = DB::table('products')
         ->where('id','=',$product_id)
         ->first();
-
         $this->productEdit[] = $product;
     }
 }
