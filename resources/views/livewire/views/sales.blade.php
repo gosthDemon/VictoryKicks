@@ -1,4 +1,3 @@
-
 <div class="views">
     <div class="content" id="records">
         <div class="tittle">
@@ -27,28 +26,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forEach($products as $product)
-                    <tr>
-                        <td>{{$product->code}}</td>
-                        <td class="not-wrap">{{$product->name}}</td>
-                        <td class="not-wrap">{{$product->buy_price}}.00 $us</td>
-                        <td class="not-wrap">{{$product->minimum_price}}.00 $us</td>
-                        <td class="not-wrap">{{$product->sale_price}}.00 $us</td>
-                        <td>{{$product->brand}}</td>
-                        <td class="not-wrap">{{$product->colors}}</td>
-                        <td>{{$product->size}}</td>
-                        <td>{{$product->description}}</td>
-                        <td class="not-wrap">
-                            <a class="action-button show-button"  data-toggle="modal" data-target="#showProduct" wire:click="$emit('getProductShow', { product_id: {{$product->id}} })"><i class="far fa-eye"></i></a>
-                            <a class="action-button edit" data-toggle="modal" data-target="#edit" wire:click="$emit('getProductEdit', { product_id: {{$product->id}} })"><i class="far fa-edit"></i></a>
-                            <a class="action-button trash" onclick="deleteThis({{$product->id}})"><i class="far fa-trash"></i></a>
-                            <a class="action-button pdf"><i class="far fa-file-pdf"></i></a>
-                        </td>
-                    </tr>
+                    @foreach ($products as $product)
+                        <tr>
+                            <td>{{ $product->code }}</td>
+                            <td class="not-wrap">{{ $product->name }}</td>
+                            <td class="not-wrap">{{ $product->buy_price }}.00 $us</td>
+                            <td class="not-wrap">{{ $product->minimum_price }}.00 $us</td>
+                            <td class="not-wrap">{{ $product->sale_price }}.00 $us</td>
+                            <td>{{ $product->brand }}</td>
+                            <td class="not-wrap">{{ $product->colors }}</td>
+                            <td>{{ $product->size }}</td>
+                            <td>{{ $product->description }}</td>
+                            <td class="not-wrap">
+                                <a class="action-button show-button" data-toggle="modal" data-target="#showProduct"
+                                    wire:click="$emit('getProductShow', { product_id: {{ $product->id }} })"><i
+                                        class="far fa-eye"></i></a>
+                                <a class="action-button edit" data-toggle="modal" data-target="#edit"
+                                    wire:click="$emit('getProductEdit', { product_id: {{ $product->id }} })"><i
+                                        class="far fa-edit"></i></a>
+                                <a class="action-button trash" onclick="deleteThis({{ $product->id }})"><i
+                                        class="far fa-trash"></i></a>
+                                <a class="action-button pdf" onclick="printThis({{$product->id}})"><i class="far fa-file-pdf"></i></a>
+                                
+                            </td>   
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-

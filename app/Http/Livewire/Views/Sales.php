@@ -12,7 +12,7 @@ class Sales extends Component
     public $search = "";
 
     public $listeners = [
-        'searchProduct' => 'searchForProduct',
+        'searchProduct' => 'searchProduct',
         'deleteProduct' => 'removeProduct'
     ];
     public function render()

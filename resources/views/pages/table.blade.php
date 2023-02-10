@@ -329,8 +329,12 @@
     .swal2-confirm{
         color: var(--clr) !important;
     }
+    .dropdown-menu{
+        background: blue;
+        z-index: 9999999999 !important;
+    }
+    
 </style>
-
 <body>
     <div class="parent-container">
         @livewire('views.sales')
@@ -501,7 +505,21 @@
                     Livewire.emit('deleteProduct', product_id);
                 }
             })
-
+        }
+        function printThis(product_id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "This will download a PDF file with a single record for printing!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#32c04e',
+                cancelButtonColor: '#d93c41',
+                confirmButtonText: 'Yes, print it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "printQrCode/"+product_id;
+                }
+            })
         }
     </script>
     @yield('scripts')
