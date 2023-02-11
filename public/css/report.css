@@ -1,0 +1,41 @@
+
+.content-cards {
+    width: 100%;
+    height: 180px;
+    display: block;
+    white-space: nowrap;
+    font-family: 'Orbitron';
+}
+
+.content-cards .card {
+    width: 49.7%;
+    height: 100%;
+    background: blue;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;
+}
+
+.content-cards .card .data,
+.content-cards .card .qr-content {
+    width: 49%;
+    height: 100%;
+    background: green;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;
+}
+
+.content-cards .card .data {
+    width: 60%;
+}
+
+.content-cards .card .qr-content {
+    width: 39%;
+}
+
+.content-cards .card .data .tittle {
+    width: 60%;
+}

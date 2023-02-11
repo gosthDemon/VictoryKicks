@@ -137,6 +137,12 @@ class ProductController extends Controller
         return back();
     }
     public function printOne($id){
-        
+        $products = DB::table('products')
+        ->where('status','=','OnSold')
+        ->get();
+        // return view('pages.report');
+        return \PDF::loadView('pages.report',compact('products'))
+        ->setPaper('a4', 'portrait')
+        ->stream('archivo.pdf');
     }
 }
