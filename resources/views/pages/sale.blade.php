@@ -204,145 +204,287 @@
         transform: translateX(calc(70px * 4));
     }
 
-    #records {
-        color: white !important;
-        font-family: "Orbitron";
-        padding: 10px;
-        overflow-y: scroll;
-    }
+    @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900 &display=swap");
+:root {
+    --clr: #222327;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 0;
+    height: 0px;
+}
 
-    #records .tittle {
-        text-align: center;
-        padding: 10px;
-    }
+/* Track */
+::-webkit-scrollbar-track {
+    background: #858585;
+    border-radius: 3px;
+}
 
-    #records .content-table {
-        overflow-x: scroll;
-    }
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(65, 65, 65, 0.836);
+    border-radius: 3px;
+}
 
-    th {
-        color: #29fd53;
-        white-space: nowrap
-    }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background: var(--background);
+    width: 100%;
+    font-family: "Orbitron";
+}
 
-    .not-wrap {
-        white-space: nowrap
+.parent-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: var(--clr);
+    padding: none;
+    margin: none;
+}
+.parent-container .body {
+    padding: 20px 20px 120px;
+    color: white;
+}
+.parent-container .body .kicks-card {
+    width: 100%;
+    min-height: 100%;
+    background: var(--clr);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    padding-bottom: 0;
+}
+.parent-container .body .kicks-card .banner {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+.parent-container .body .kicks-card .banner .tittle-banner {
+    font-family: "Orbitron", sans-serif;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 10;
+}
+.parent-container .body .kicks-card .banner .content-banner {
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/home/sale-view.png") !important;
+    background-size: cover;
+}
+.parent-container .body .kicks-card .content {
+    width: 100%;
+    height: 100%;
+    padding: 0 15px 15px;
+}
+@media screen and (max-width: 992px) {
+    .parent-container .body .kicks-card .banner{
+        
     }
-
-    tr {
-        color: white
+    .parent-container .body .kicks-card {
+        flex-direction: column;
+        height: auto;
     }
-
-    tr:hover {
-        color: white !important;
-        background: #ffffff28 !important;
+}
+.parent-container .body .kicks-card .content .content-search-input {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+}
+.search-input {
+    width: calc(100% - 60px); /* para que ocupe el resto del espacio */
+    padding-right: 60px; /* para que no tapen el botón */
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid #dfdbd2;
+    color: #dfdbd2;
+    padding-left: 20px;
+    font-size: 17px;
+    outline: none;
+    font-family: "Orbitron";
+}
+.content-info-one {
+    height: 320px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+@media screen and(max-width: 992px) {
+    .content-info-one {
+        height: fit-content;
     }
-
-    .search-content {
-        margin: 10px 0px 10px 0px;
-        background: rgba(0, 0, 255, 0);
-        width: 100%;
-        display: flex;
-        align-items: center;
-        border: 2px solid #e1e1e1;
-        border-radius: 3px;
-    }
-
-    .search-content input {
-        width: calc(100% - 60px);
-        height: 35px;
-        background: #00000000;
-        border: none;
-        padding-left: 20px;
-        color: white;
-        outline: none;
-    }
-
-    .search-content button {
-        background: rgba(255, 0, 0, 0);
-        width: 60px;
-        font-size: 22px;
-        border: none;
-        height: 35px;
-        color: #29fd53;
-
-    }
-
-    .action-button {
-        height: 40px;
-        width: 40px;
-        padding: 5px 10px 5px 10px;
-        border-radius: 3px;
-        background: white;
-        color: var(--clr)
-    }
-
-    .action-button:hover {
-        padding: 10px 10px 10px 10px;
-    }
-
-    .action-button:hover i {
-        color: var(--clr);
-    }
-
-    .show {
-        background: rgba(34, 35, 39, 0.1);
-        backdrop-filter: blur(10px) !important;
-    }
-
-    .show-button {
-        background: #0087d1;
-    }
-
-    .edit {
-        background: #e1b94f;
-    }
-
-    .trash {
-        background: #d93c41;
-    }
-
-    .pdf {
-        background: #d93c41;
-    }
-
-    a {
-        cursor: pointer;
-    }
-
-    /*MODAL*/
-    .swal2-modal{
-        background: var(--clr) !important;
-    }
-    .swal2-icon{
-        border: solid #29fd53 3px !important;
-    }
-    .swal2-icon-content{
-        color: #29fd53 !important;
-    }
-    .swal2-title{
-        color: white!important;
-    }
-    .swal2-html-container{
-        color: white!important;
-    }
-    .swal2-confirm{
-        color: var(--clr) !important;
-    }
-    .dropdown-menu{
-        background: blue;
-        z-index: 9999999999 !important;
-    }
+}
+.content-info-one .row-info-one {
+    max-width: 100%;
+    margin: 0;
+}
+.scan-qr {
+    width: 60px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #dfdbd2;
+    border-left: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #dfdbd2;
+}
+.scan-qr:hover {
+    cursor: pointer;
+}
+.scan-qr i {
+    font-size: 25px;
+}
+.parent-container .body .kicks-card .content .image-qr-content {
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px 0;
+}
+.parent-container .body .kicks-card .content .image-qr-content img {
+    height: 250px;
+    width: 250px;
+}
+.parent-container .body .kicks-card .content .info-shoes {
+    padding: 10px;
+}
+.parent-container .body .kicks-card .content .info-shoes .name {
+    font-family: "Orbitron";
+    font-size: 25px;
+    line-height: 1;
+    text-align: center;
+    padding: 20px 10px 10px;
+}
+.parent-container .body .kicks-card .content .info-shoes p {
+    font-family: "Orbitron";
+    line-height: 0.6;
+    font-size: 23px;
+}
+.parent-container .body .kicks-card .content .info-shoes p.sale {
+    font-family: "Orbitron";
+    font-size: 40px;
+}
+.parent-container .body .kicks-card .content .info-shoes span {
+    font-family: "Orbitron";
+    line-height: 0.5;
+    font-size: 15px;
+}
+.parent-container .body .kicks-card .content .info-shoes span.info-text {
+    color: #29fd53;
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white {
+    background: white;
+    color: var(--clr);
+    padding: 5px;
+    border-radius: 3px;
+    height: 180px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white .tittle {
+    color: var(--clr);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Orbitron";
+    margin-bottom: 7px;
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white p {
+    color: var(--clr);
+    text-align: left;
+    font-family: "Orbitron";
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white p.brand {
+    font-size: 17px;
+}
+.parent-container .body .kicks-card .content .info-shoes .card-info-white p span {
+    font-weight: bold;
+}
+.parent-container .body .kicks-card .content .content-info-two .btn-sale {
+    margin-top: 30px;
+    width: 100%;
+    padding: 10px;
+    font-size: 30px;
+    font-family: "Orbitron";
+    font-weight: bold;
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    border: 3px solid #29fd53;
+    background: var(--clr);
+    color: #29fd53;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+.parent-container .body .kicks-card .content .content-info-two .btn-sale:hover {
+    background: var(--clr);
+    width: 100%;
+    padding: 10px;
+    font-size: 30px;
+    font-family: "Orbitron";
+    font-weight: bold;
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    border: 3px solid #29fd53;
+    background: #29fd53;
+    border-radius: 5px;
+    color: var(--clr);
+    transition: 0.5s;
+}
+/* SCANNER QR */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#reader {
+    width: 100%;
+}
+#result {
+    text-align: center;
+    font-size: 1.5rem;
+}
+#html5-qrcode-button-launching-camera {
+    display: none !important;
+}
+#html5-qrcode-button-camera-stop {
+    display: none !important;
+}
     
 </style>
 <body>
     <div class="parent-container">
-        @livewire('views.sales')
+        @livewire('layouts.sale-shoe')
         <div class="footer">
             <div class="navigation">
                 <ul>
-                    <li class="list">
-                        <a href="{{route('sale')}}">
+                    <li class="list active">
+                        <a href="#">
                             <span class="icon">
                                 <i class="far fa-home"></i>
                             </span>
@@ -359,7 +501,7 @@
                                 Register/Buy</span>
                         </a>
                     </li>
-                    <li class="list active">
+                    <li class="list">
                         <a href="{{route('showProducts')}}">
                             <span class="icon">
                                 <i class="fad fa-list"></i>

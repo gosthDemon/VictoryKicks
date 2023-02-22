@@ -200,8 +200,8 @@
         <div class="footer">
             <div class="navigation">
                 <ul>
-                    <li class="list active" onclick="changeView('views.sales')">
-                        <a href="#">
+                    <li class="list">
+                        <a href="{{route('sale')}}">
                             <span class="icon">
                                 <i class="far fa-home"></i>
                             </span>
@@ -209,7 +209,7 @@
                                 Home</span>
                         </a>
                     </li>
-                    <li class="list" onclick="changeView('views.register')">
+                    <li class="list active">
                         <a href="#">
                             <span class="icon">
                                 <i class="fad fa-edit"></i>
@@ -218,8 +218,8 @@
                                 Register/Buy</span>
                         </a>
                     </li>
-                    <li class="list" onclick="changeView('views.show')">
-                        <a href="#">
+                    <li class="list">
+                        <a href="{{route('showProducts')}}">
                             <span class="icon">
                                 <i class="fad fa-list"></i>
                             </span>
@@ -227,7 +227,7 @@
                                 Items</span>
                         </a>
                     </li>
-                    <li class="list" onclick="changeView('views.sales')">
+                    <li class="list">
                         <a href="#">
                             <span class="icon">
                                 <i class="fad fa-bags-shopping"></i>

@@ -32,5 +32,6 @@ Route::POST('/update', [ProductController::class, "update"])->name('updateProduc
 
 Route::get('/products', [ProductController::class, "showProducts"])->name('showProducts');
 Route::get('/printQrCode/{id_product}', [ProductController::class, "printOne"])->name('printOne');
+Route::get('/sale', [ProductController::class, "sale"])->name('sale');
 
 require __DIR__.'/auth.php';

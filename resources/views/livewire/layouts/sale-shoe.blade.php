@@ -1,5 +1,4 @@
 <div>
-
     <div class="body">
         <div class="kicks-card">
             <div class="banner">
@@ -58,8 +57,6 @@
                         </div>
                     </div>
                 </div>
-
-                
                 <div class="content-info-two">
                     <button class="btn-sale">Sale</button>
                 </div>

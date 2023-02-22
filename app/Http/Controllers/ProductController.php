@@ -145,4 +145,10 @@ class ProductController extends Controller
         ->setPaper('a4', 'portrait')
         ->stream('archivo.pdf');
     }
+    public function sale(){
+        return view('pages.sale');
+    }
 }
+
+
+
