@@ -478,6 +478,7 @@ main {
     
 </style>
 <body>
+    
     <div class="parent-container">
         @livewire('layouts.sale-shoe')
         <div class="footer">
