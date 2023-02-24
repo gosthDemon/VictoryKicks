@@ -39,7 +39,7 @@ class ProductController extends Controller
             new ImagickImageBackEnd()
         );
         $writer = new Writer($renderer);
-        $writer->writeFile($name_image, '../storage/app/public/images/' . $name_image . '/qrCode.png');
+        $writer->writeFile($name_image, '../storage/app/public/images/' . $name_image . '/qrcode.png');
 
         $buy_in = str_replace(" \$us", "", $request->buy_in);
         $minimum_price = str_replace(" \$us", "", $request->minimum_price);

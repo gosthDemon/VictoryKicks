@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../public/css/fontAwesome.css" />
-    {{-- <link rel="stylesheet" href="{{ URL::asset('css/kick.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ URL::asset('css/kick.css')}}"> --}}
 </head>
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
