@@ -19,7 +19,7 @@ class ProductController extends Controller
         Validator::make($request->all(), [
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|max:50',
-            'code' => 'required|max:15|unique:Products,$id',
+            'code' => 'required|max:15',
             'buy_in' => 'required|max:12',
             'minimum_price' => 'required|max:12',
             'sale_price' => 'required|max:12',
@@ -85,7 +85,6 @@ class ProductController extends Controller
             'name' => 'required|max:50',
             'code' => [
                 'required',
-                Rule::unique('products')->ignore($request->id),
             ],
             'buy_in' => 'required|max:12',
             'minimum_price' => 'required|max:12',

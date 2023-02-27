@@ -4,7 +4,7 @@
         <div class="tittle">
             <h2>Shoe Registration Form</h2>
         </div>
-        <form action="{{ route('saveProduct') }}" method="POST" enctype="multipart/form-data" class="row">
+        <form action="{{ route('saveProduct') }}" onsubmit="return validateUser()" method="POST" enctype="multipart/form-data" class="row">
             @csrf
             <div class="image-shoe col-md-4">
                 <div class="file-upload">
