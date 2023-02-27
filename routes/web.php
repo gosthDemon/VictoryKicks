@@ -16,22 +16,22 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home/login');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/home', [HomeController::class, "home"])->name('home');
-Route::get('/new_home', [HomeController::class, "new_home"])->name('new_home');
+Route::get('/home', [HomeController::class, "home"])->name('home')->middleware(['auth']);
+Route::get('/new_home', [HomeController::class, "new_home"])->name('new_home')->middleware(['auth']);
 
-Route::POST('/save', [ProductController::class, "save"])->name('saveProduct');
-Route::POST('/update', [ProductController::class, "update"])->name('updateProduct');
+Route::POST('/save', [ProductController::class, "save"])->name('saveProduct')->middleware(['auth']);
+Route::POST('/update', [ProductController::class, "update"])->name('updateProduct')->middleware(['auth']);
 
 
-Route::get('/products', [ProductController::class, "showProducts"])->name('showProducts');
-Route::get('/printQrCode/{id_product}', [ProductController::class, "printOne"])->name('printOne');
-Route::get('/sale', [ProductController::class, "sale"])->name('sale');
+Route::get('/products', [ProductController::class, "showProducts"])->name('showProducts')->middleware(['auth']);
+Route::get('/printQrCode/{id_product}', [ProductController::class, "printOne"])->name('printOne')->middleware(['auth']);
+Route::get('/sale', [ProductController::class, "sale"])->name('sale')->middleware(['auth']);
 
 require __DIR__.'/auth.php';
