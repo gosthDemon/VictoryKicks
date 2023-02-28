@@ -60,10 +60,10 @@
                                 <button class="login-button">Log In</button>
                             </div>
 
-                            <div class="group-form">
+                            {{-- <div class="group-form">
                                 <a href="#" class="forgot-password" id="forgot_password"
                                     name="forgot_password">Forgot your password?</a>
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
 
