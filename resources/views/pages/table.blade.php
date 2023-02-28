@@ -236,11 +236,15 @@
         color: white !important;
         background: #ffffff28 !important;
     }
-
+    .content-search-and-button{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
     .search-content {
         margin: 10px 0px 10px 0px;
         background: rgba(0, 0, 255, 0);
-        width: 100%;
+        width: calc(100% - 200px);
         display: flex;
         align-items: center;
         border: 2px solid #e1e1e1;
@@ -266,7 +270,17 @@
         color: #29fd53;
 
     }
-
+    .content-search-and-button .content-print-button{
+        width: 200px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .content-search-and-button .content-print-button a{
+        padding: 5px 30px 5px 30px;
+        background: #29fd53;
+        border-radius: 2px;
+        color: var(--clr);
+    }
     .action-button {
         height: 40px;
         width: 40px;

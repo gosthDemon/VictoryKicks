@@ -3,11 +3,16 @@
         <div class="tittle">
             <h2>Registered slippers</h2>
         </div>
-        <div class="search-content">
-            <input type="text" wire:ignore wire:model="search" name="search" id="search">
-            <button data-toggle="modal" data-target="#contentScanner">
-                <i class="fal fa-qrcode"></i>
-            </button>
+        <div class="content-search-and-button">
+            <div class="search-content">
+                <input type="text" wire:ignore wire:model="search" name="search" id="search">
+                <button data-toggle="modal" data-target="#contentScanner">
+                    <i class="fal fa-qrcode"></i>
+                </button>
+            </div>
+            <div class="content-print-button">
+                <a href="/printAll">Print All</a>
+            </div>
         </div>
         <div class="content-table">
             <table class="table table-hover">
