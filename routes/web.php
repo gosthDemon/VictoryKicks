@@ -33,6 +33,11 @@ Route::POST('/update', [ProductController::class, "update"])->name('updateProduc
 Route::get('/products', [ProductController::class, "showProducts"])->name('showProducts')->middleware(['auth']);
 Route::get('/printQrCode/{id_product}', [ProductController::class, "printOne"])->name('printOne')->middleware(['auth']);
 Route::get('/printAll', [ProductController::class, "printAll"])->name('printAll')->middleware(['auth']);
-Route::get('/sale', [ProductController::class, "sale"])->name('sale')->middleware(['auth']);
 
+
+Route::get('/sale', [ProductController::class, "new_sale"])->name('sale')->middleware(['auth']);
+Route::get('/sales', [ProductController::class,"sales"])->name('sales')->middleware(['auth']);
+Route::post('/sales/new', [ProductController::class,"sale_save"])->name('sale.save')->middleware(['auth']);
+
+Route::get('/analytics', [ProductController::class,'analytics'])->name('analytics')->middleware(['auth']);
 require __DIR__.'/auth.php';

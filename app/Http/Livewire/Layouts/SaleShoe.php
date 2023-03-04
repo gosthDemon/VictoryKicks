@@ -13,7 +13,7 @@ class SaleShoe extends Component
         return view('livewire.layouts.sale-shoe');
     }
     public function searchOneProduct($code_bar){
-        $my_product = DB::Table('products')->where('qr_code',$code_bar)->limit(1)->get();
+        $my_product = DB::Table('products')->where('qr_code','=',$code_bar)->limit(1)->get();
         if (!empty($my_product)) {
             $this->product = $my_product;
         }

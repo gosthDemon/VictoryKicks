@@ -60,7 +60,7 @@ class ProductController extends Controller
                     'colors' => $request->colors,
                     'size' => $request->size,
                     'description' => $request->description,
-                    'status' => 'OnSold',
+                    'status' => 'OnSale',
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);
@@ -102,8 +102,8 @@ class ProductController extends Controller
             $today = date("Ymd-His");
             $name_file = "sneaker-" . $today;
             $extension = $request->file('image')->extension();
-            $request->file('image')->storeAs('public/images/' . $this_product->qr_code . "/", $name_file."." . $extension);
-            $url_image = "storage/images/".$this_product->qr_code ."/".$name_file.".".$extension;
+            $request->file('image')->storeAs('public/images/' . $this_product->qr_code . "/", $name_file . "." . $extension);
+            $url_image = "storage/images/" . $this_product->qr_code . "/" . $name_file . "." . $extension;
         }
         $buy_in = str_replace(" \$us", "", $request->buy_in);
         $minimum_price = str_replace(" \$us", "", $request->minimum_price);
@@ -111,7 +111,7 @@ class ProductController extends Controller
         DB::beginTransaction();
         try {
             DB::table('products')
-            ->where('id', '=',$request->id)
+                ->where('id', '=', $request->id)
                 ->update([
                     'name' => $request->name,
                     'code' => $request->code,
@@ -135,29 +135,103 @@ class ProductController extends Controller
 
         return back();
     }
-    public function printOne($id){
+    public function printOne($id)
+    {
         $products = DB::table('products')
-        ->where('status','=','OnSold')
-        ->where('id', '=', $id)
-        ->get();
+            ->where('status', '=', 'OnSold')
+            ->where('id', '=', $id)
+            ->get();
+
+        $qrCode = $products[0]->qr_code;
+        $date = date('Y-m-d_H-i-s'); // Obtener la fecha y hora actual en formato deseado
+
         // return view('pages.report');
-        return \PDF::loadView('pages.report',compact('products'))
-        ->setPaper('a4', 'portrait')
-        ->stream('archivo.pdf');
+        return \PDF::loadView('pages.report', compact('products'))
+            ->setPaper('a4', 'portrait')
+            ->download('Qr_' . $qrCode . '_Generate_in_' . $date . '.pdf');
     }
-    public function printAll(){
+    public function printAll()
+    {
         $products = DB::table('products')
-        ->where('status','=','OnSold')
-        ->get();
-        // return view('pages.report');
-        return \PDF::loadView('pages.report',compact('products'))
-        ->setPaper('a4', 'portrait')
-        ->stream('archivo.pdf');
+            ->where('status', '=', 'OnSold')
+            ->get();
+        $date = date('Y-m-d_H-i-s'); // Obtener la fecha y hora actual en formato deseado
+
+        return \PDF::loadView('pages.report', compact('products'))
+            ->setPaper('a4', 'portrait')
+            ->download('tickets_qr_generate_in_' . $date . '.pdf'); // Descargar con el nombre deseado
     }
-    public function sale(){
+    public function new_sale()
+    {
         return view('pages.sale');
     }
+    public function sales()
+    {
+        return view('sales.table');
+    }
+    public function sale_save(Request $request)
+    {
+        $request->validate([
+            'sold_in' => 'required|numeric',
+            'product_id' => 'required'
+        ]);
+
+        DB::beginTransaction();
+        try {
+            DB::table('sales')->insert([
+                'sold_in' => $request->sold_in,
+                'sale_date' => now(),
+                'product_id' => $request->product_id,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+
+            DB::table('products')
+                ->where('id', '=', $request->product_id)
+                ->update(['status' => 'Sold']);
+
+            DB::commit();
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return "ERROR: " . $th->getMessage();
+        }
+    }
+
+    public function analytics()
+    {
+        $ventasPorMes = DB::table('sales')
+            ->join('products', 'sales.product_id', '=', 'products.id')
+            ->select(
+                DB::raw('MONTH(sales.sale_date) as month'),
+                DB::raw('SUM(products.buy_price) as inversion'),
+                DB::raw('SUM(sales.sold_in) as ventas')
+            )
+            ->where('products.status', '=', 'Sold')
+            ->groupBy('month')
+            ->get();
+
+
+        $shoes = DB::table('products')
+            ->where('status', '=', 'OnSale')
+            ->orWhere('status', '=', 'Sold')
+            ->count();
+
+        $shoes_sold_in = DB::table('products')
+            ->where('status', '=', 'OnSale')
+            ->count();
+
+        $shoes_sold = DB::table('products')
+            ->orWhere('status', '=', 'Sold')
+            ->count();
+
+        $totalVentas = DB::table('sales')->sum('sold_in');
+        $totalCompras = DB::table('products')->where('status','=','Sold')->sum('buy_price');
+
+        $totalGanado = $totalVentas - $totalCompras;
+
+        
+
+        return view('charts.chart', ["total_compras"=>$totalCompras,"totalGanado"=>$totalGanado,"shoes_sold_in" => $shoes_sold_in, "shoes" => $shoes, 'shoes_sold' => $shoes_sold], compact('ventasPorMes'));
+    }
 }
-
-
-

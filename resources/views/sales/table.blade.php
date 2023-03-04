@@ -14,10 +14,8 @@
     @livewireStyles
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ URL::asset('css/fontAwesome.css') }}" />
-    <link rel="stylesheet" href="../../../public/css/fontAwesome.css" />
-    {{-- <link rel="stylesheet" href="{{ URL::asset('css/kick.css')}}"> --}}
-</head>
+        <link rel="stylesheet" href="{{URL::asset('css/fontawesome.css')}}" />
+        <link rel="stylesheet" href="../../../public/css/fontAwesome.css" />
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
 
@@ -238,7 +236,11 @@
         color: white !important;
         background: #ffffff28 !important;
     }
-
+    .content-search-and-button{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
     .search-content {
         margin: 10px 0px 10px 0px;
         background: rgba(0, 0, 255, 0);
@@ -250,7 +252,7 @@
     }
 
     .search-content input {
-        width: calc(100% - 60px);
+        width: 100%;
         height: 35px;
         background: #00000000;
         border: none;
@@ -265,9 +267,9 @@
         font-size: 22px;
         border: none;
         height: 35px;
-        color: red;
-    }
+        color: #29fd53;
 
+    }
     .action-button {
         height: 40px;
         width: 40px;
@@ -311,78 +313,38 @@
     }
 
     /*MODAL*/
-    .swal2-modal {
+    .swal2-modal{
         background: var(--clr) !important;
     }
-
-    .swal2-icon {
+    .swal2-icon{
         border: solid #29fd53 3px !important;
     }
-
-    .swal2-icon-content {
+    .swal2-icon-content{
         color: #29fd53 !important;
     }
-
-    .swal2-title {
-        color: white !important;
+    .swal2-title{
+        color: white!important;
     }
-
-    .swal2-html-container {
-        color: white !important;
+    .swal2-html-container{
+        color: white!important;
     }
-
-    .swal2-confirm {
+    .swal2-confirm{
         color: var(--clr) !important;
     }
-
-    .dropdown-menu {
+    .dropdown-menu{
         background: blue;
         z-index: 9999999999 !important;
     }
+    
 </style>
-
 <body>
-
     <div class="parent-container">
-        @livewire('layouts.sale-shoe')
-        <!-- Modal -->
-        <div class="modal fade" id="newSale" tabindex="-1" aria-labelledby="newSaleLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="newSaleLabel">New Sale</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{route('sale.save')}}" method="POST">
-                            @csrf
-                            Estas segro d
-                            <div class="row">
-                                <input type="hidden" class="form-control" id="product_id" name="product_id"
-                                        value="{{ old('product_id') }}" required>
-                                <div class="form-group col-md-12">
-                                    <label for="Sold_in">Sold in($us): </label>
-                                    <input type="number" class="form-control" id="sold_in" name="sold_in"
-                                        value="{{ old('sold_in') }}" required>
-                                    @error('sold_in')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                    <br>
-                                    <button class="sale-button">Sell</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @livewire('sales.table')
         <div class="footer">
             <div class="navigation">
                 <ul>
-                    <li class="list active">
-                        <a href="{{ route('sale') }}">
+                    <li class="list">
+                        <a href="{{route('sale')}}">
                             <span class="icon">
                                 <i class="far fa-home"></i>
                             </span>
@@ -391,7 +353,7 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a href="{{ route('new_home') }}">
+                        <a href="{{route('new_home')}}">
                             <span class="icon">
                                 <i class="fad fa-edit"></i>
                             </span>
@@ -400,7 +362,7 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a href="{{ route('showProducts') }}">
+                        <a href="{{route('showProducts')}}">
                             <span class="icon">
                                 <i class="fad fa-list"></i>
                             </span>
@@ -408,8 +370,8 @@
                                 Items</span>
                         </a>
                     </li>
-                    <li class="list">
-                        <a href="{{ route('sales') }}">
+                    <li class="list active">
+                        <a href="{{route('sales')}}">
                             <span class="icon">
                                 <i class="fad fa-bags-shopping"></i>
                             </span>
@@ -423,7 +385,7 @@
                                 <i class="fad fa-analytics"></i>
                             </span>
                             <span class="text">
-                                Settings</span>
+                                Analytics</span>
                         </a>
                     </li>
                     <div class="indicator"></div>
@@ -457,7 +419,25 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @livewire('views.edit')
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="showProduct" tabindex="-1" aria-labelledby="showProductLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+                    @livewire('views.show-one')
+        </div>
     </div>
     <script src="{{ URL::asset('js/html5-qrcode.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -472,7 +452,6 @@
         let image = document.getElementById("image_shoe");
         let boxRender = document.getElementById("reader");
         let scanner;
-        let search = document.getElementById('search');
 
         if (boxRender) {
             scanner = new Html5QrcodeScanner('reader', {
@@ -496,15 +475,10 @@
             let search = document.getElementById('search');
             search.value = "";
             search.value = result;
-            Livewire.emit('searchOneProduct', result);
+            Livewire.emit('searchSale', result);
             scanner.clear();
             $('#contentScanner').modal('hide');
         }
-
-        search.addEventListener('keyup', function(event) {
-            Livewire.emit('searchOneProduct', search.value);
-        });
-
         // Menu ACTIVE LINK
         function activeLink() {
             list.forEach((item) => {
@@ -516,13 +490,25 @@
             item.addEventListener("click", activeLink);
         });
 
-        function newSale(id){
-            document.getElementById('product_id').value = id;
-            $("#newSale").modal('show');
+        //Delete Product
+        function deleteThis(product_id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#32c04e',
+                cancelButtonColor: '#d93c41',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('deleteSale', product_id);
+                }
+            })
         }
-
-        
     </script>
     @yield('scripts')
     @livewireScripts
-</body></html>
+</body>
+
+</html>

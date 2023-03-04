@@ -43,7 +43,7 @@
                             </div>
                             <div class="field col-md-4">
                                 <div class="label">Size: </div>
-                                <div class="value">&nbsp; {{ $item->size }}$us</div>
+                                <div class="value">&nbsp; {{ $item->size }}</div>
                             </div>
                             <div class="field col-md-4">
                                 <div class="label">Color: </div>
@@ -60,7 +60,9 @@
                                     debitis! </div>
                             </div>
                         </div>
-                        <button class="sale-button">SALE SHOE</button>
+                        @if ($item->status == 'OnSale')
+                            <button class="sale-button" onclick="newSale({{$item->id}})">SHOE SALESMAN</button>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -88,6 +90,7 @@
                     this.value = this.value.replace(/[^\d]/g, "") + " $us";
                 });
             });
+            
         </script>
     </div>
 </div>

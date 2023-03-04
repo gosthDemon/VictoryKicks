@@ -199,6 +199,26 @@
 <body>
     <div class="parent-container">
             @livewire('new-template')
+            <!-- Modal -->
+<div class="modal fade" id="newSale" tabindex="-1" aria-labelledby="newSaleLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newSaleLabel">New Sale</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Hola
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
         <div class="footer">
             <div class="navigation">
                 <ul>
@@ -230,27 +250,28 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a href="#">
+                        <a href="{{route('sales')}}">
                             <span class="icon">
                                 <i class="fad fa-bags-shopping"></i>
                             </span>
                             <span class="text">
-                                Sale</span>
+                                Sales</span>
                         </a>
                     </li>
                     <li class="list">
-                        <a href="#">
+                        <a href="{{route('analytics')}}">
                             <span class="icon">
-                                <i class="fad fa-cog"></i>
+                                <i class="fad fa-analytics"></i>
                             </span>
                             <span class="text">
-                                Settings</span>
+                                analytics</span>
                         </a>
                     </li>
                     <div class="indicator"></div>
                 </ul>
             </div>
         </div>
+        
     </div>
 
     <script src="{{ URL::asset('js/html5-qrcode.min.js') }}"></script>
@@ -303,8 +324,9 @@
         list.forEach((item) => {
             item.addEventListener("click", activeLink);
         });
-
-
+        function newSale(id){
+                $('newSale').modal('show');
+            }
     </script>
     @livewireScripts
 </body>

@@ -244,7 +244,7 @@
     .search-content {
         margin: 10px 0px 10px 0px;
         background: rgba(0, 0, 255, 0);
-        width: calc(100% - 200px);
+        width: calc(100% - 70px);
         display: flex;
         align-items: center;
         border: 2px solid #e1e1e1;
@@ -382,21 +382,21 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a href="">
+                        <a href="{{route('sales')}}">
                             <span class="icon">
                                 <i class="fad fa-bags-shopping"></i>
                             </span>
                             <span class="text">
-                                Sale</span>
+                                Sales</span>
                         </a>
                     </li>
                     <li class="list">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#edit_modal">
+                        <a href="{{route('analytics')}}">
                             <span class="icon">
-                                <i class="fad fa-cog"></i>
+                                <i class="fad fa-analytics"></i>
                             </span>
                             <span class="text">
-                                Settings</span>
+                                Analytics</span>
                         </a>
                     </li>
                     <div class="indicator"></div>

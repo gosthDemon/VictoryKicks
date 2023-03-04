@@ -17,6 +17,8 @@ class CreateSalesTable extends Migration
             $table->id();
             $table->integer('sold_in');
             $table->date('sale_date');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

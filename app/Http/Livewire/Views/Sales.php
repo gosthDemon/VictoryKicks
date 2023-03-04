@@ -25,7 +25,7 @@ class Sales extends Component
     public function getProducts()
     {
         $products = DB::table('products')
-            ->where('status', '!=', 'Disabled')
+            ->where('status', '=', 'OnSale')
             ->where(function ($query) {
                 $query->where('code', 'LIKE', '%' . $this->search . '%')
                     ->orWhere('name', 'LIKE', '%' . $this->search . '%')
