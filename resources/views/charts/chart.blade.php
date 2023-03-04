@@ -368,13 +368,14 @@
         }
 
         .kicks-cards .my-card .card-murphy {
-            background:yellow;
+            background: yellow;
             height: 70px;
             width: 100%;
             display: flex !important;
             border-radius: 5px;
         }
-        .kicks-cards .my-card .card-murphy .icon-card{
+
+        .kicks-cards .my-card .card-murphy .icon-card {
             width: 30%;
             height: 100%;
             background: #29fd53;
@@ -385,26 +386,28 @@
             color: var(--clr);
             border-radius: 5px 0px 0px 5px;
         }
-        .kicks-cards .my-card .card-murphy .text-card{
-            width:70%;
+
+        .kicks-cards .my-card .card-murphy .text-card {
+            width: 70%;
             height: 100%;
             background: white;
             color: var(--clr);
             border-radius: 0px 5px 5px 0px;
         }
-        .kicks-cards .my-card .card-murphy .text-card .title{
+
+        .kicks-cards .my-card .card-murphy .text-card .title {
             width: 100%;
             height: 20px;
             font-size: 16px;
             text-align: center;
         }
-        .kicks-cards .my-card .card-murphy .text-card .value{
+
+        .kicks-cards .my-card .card-murphy .text-card .value {
             width: 100%;
             height: 20px;
             font-size: 30px;
             text-align: center;
         }
-
     </style>
 
 <body>
@@ -429,8 +432,8 @@
                                 <i class="fal fa-shoe-prints"></i>
                             </div>
                             <div class="text-card">
-                                <div class="title">Zapatillas Compradas</div>
-                                <div class="value">{{$shoes}}</div>
+                                <div class="title">Bought slippers</div>
+                                <div class="value">{{ $shoes }}</div>
                             </div>
                         </div>
                     </div>
@@ -440,8 +443,8 @@
                                 <i class="fal fa-store-alt"></i>
                             </div>
                             <div class="text-card">
-                                <div class="title">Zapatillas Vendidas</div>
-                                <div class="value">{{$shoes_sold}}</div>
+                                <div class="title">Sold Shoes</div>
+                                <div class="value">{{ $shoes_sold }}</div>
                             </div>
                         </div>
                     </div>
@@ -451,8 +454,8 @@
                                 <i class="fal fa-warehouse-alt"></i>
                             </div>
                             <div class="text-card">
-                                <div class="title">Zapatillas en Stock</div>
-                                <div class="value">{{$shoes_sold_in}}</div>
+                                <div class="title">Slippers in Stock</div>
+                                <div class="value">{{ $shoes_sold_in }}</div>
                             </div>
                         </div>
                     </div>
@@ -462,8 +465,8 @@
                                 <i class="fal fa-sack-dollar"></i>
                             </div>
                             <div class="text-card">
-                                <div class="title">Ganancias</div>
-                                <div class="value">{{$totalGanado}}</div>
+                                <div class="title">Profits</div>
+                                <div class="value">{{ $totalGanado }}</div>
                             </div>
                         </div>
                     </div>
@@ -546,9 +549,9 @@
             item.addEventListener("click", activeLink);
         });
         var donaData = {
-            labels: ['Inversión($us)', 'Ganancias ($us)'],
+            labels: ['Investment($us)', 'Profits ($us)'],
             datasets: [{
-                data: [{{$total_compras}}, {{$totalGanado}}],
+                data: [{{ $total_compras }}, {{ $totalGanado }}],
                 backgroundColor: [
                     '#fff',
                     '#29fd53'
@@ -574,11 +577,11 @@
         });
 
         var lineasData = {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre',
-                'Noviembre', 'Diciembre'
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+                'November', 'December'
             ],
             datasets: [{
-                label: 'Inversión',
+                label: 'Investment',
                 borderColor: '#36A2EB',
                 data: [
                     @foreach ($ventasPorMes as $venta)
@@ -586,7 +589,7 @@
                     @endforeach
                 ]
             }, {
-                label: 'Ventas',
+                label: 'Sales',
                 borderColor: '#FFCE56',
                 data: [
                     @foreach ($ventasPorMes as $venta)
