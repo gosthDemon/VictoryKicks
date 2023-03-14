@@ -358,7 +358,7 @@
                     <div class="modal-body">
                         <form action="{{route('sale.save')}}" method="POST">
                             @csrf
-                            Estas segro d
+                            Are you sure to sell this?
                             <div class="row">
                                 <input type="hidden" class="form-control" id="product_id" name="product_id"
                                         value="{{ old('product_id') }}" required>

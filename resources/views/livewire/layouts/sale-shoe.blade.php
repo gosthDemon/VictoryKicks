@@ -55,9 +55,7 @@
                             </div>
                             <div class="field col-md-12">
                                 <div class="label">Description: </div>
-                                <div class="value description"> Lorem ipsum dolor, sit amet consectetur adipisicing
-                                    elit. Omnis quaerat ad blanditiis repellat impedit nam quisquam accusamus totam quae
-                                    debitis! </div>
+                                <div class="value description">{{$item->description}}</div>
                             </div>
                         </div>
                         @if ($item->status == 'OnSale')

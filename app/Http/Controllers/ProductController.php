@@ -16,7 +16,7 @@ class ProductController extends Controller
 {
     public function save(Request $request)
     {
-        Validator::make($request->all(), [
+        $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|max:50',
             'code' => 'required|max:15',
@@ -28,6 +28,7 @@ class ProductController extends Controller
             'size' => 'required|max:5',
             'description' => 'max:200'
         ]);
+
 
         $name_image = round(microtime(true) * 1000);
         $extension = $request->file('image')->extension();
@@ -80,7 +81,7 @@ class ProductController extends Controller
     }
     public function update(Request $request)
     {
-        Validator::make($request->all(), [
+        $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|max:50',
             'code' => [
