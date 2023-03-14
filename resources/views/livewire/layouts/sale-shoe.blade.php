@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         @if ($item->status == 'OnSale')
-                            <button class="sale-button" onclick="newSale({{$item->id}})">SHOE SALESMAN</button>
+                            <button class="sale-button" style="margin-bottom: 120px;" onclick="newSale({{$item->id}})">SHOE SALESMAN</button>
                         @endif
                     @endforeach
                 </div>

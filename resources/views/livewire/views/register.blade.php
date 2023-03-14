@@ -98,7 +98,7 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <button class="register-button" style="margin-bottom: 70px;">Register</button>
+                <button class="register-button" style="margin-bottom: 120px;">Register</button>
             </div>
         </form>
         <script>

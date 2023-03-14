@@ -370,7 +370,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                     <br>
-                                    <button class="sale-button">Sell</button>
+                                    <button class="sale-button" style="margin-bottom: 120px;">Sell</button>
                                 </div>
                             </div>
                         </form>
