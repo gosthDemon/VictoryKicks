@@ -424,7 +424,7 @@
                     </div>
                 </div>
             </div>
-            <div class="kicks-cards ">
+            <div class="kicks-cards" style="padding-bottom:70px;">
                 <div class="row gutter">
                     <div class="my-card col-md-3">
                         <div class="card-murphy">
