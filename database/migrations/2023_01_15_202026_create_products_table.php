@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('code');
-            $table->integer('buy_price');
-            $table->integer('minimum_price');
-            $table->integer('sale_price');
+            $table->double('buy_price');
+            $table->double('minimum_price');
+            $table->double('sale_price');
             $table->string('brand');
             $table->string('qr_code');
             $table->string('qr_image');

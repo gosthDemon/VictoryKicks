@@ -31,10 +31,10 @@
                         <tr>
                             <td>{{ $product->code }}</td>
                             <td class="not-wrap">{{ $product->name }}</td>
-                            <td class="not-wrap">{{ $product->sold_in }}.00 $us</td>
-                            <td class="not-wrap">{{ $product->buy_price }}.00 $us</td>
-                            <td class="not-wrap">{{ $product->minimum_price }}.00 $us</td>
-                            <td class="not-wrap">{{ $product->sale_price }}.00 $us</td>
+                            <td class="not-wrap">{{ $product->sold_in }} $us</td>
+                            <td class="not-wrap">{{ $product->buy_price }} $us</td>
+                            <td class="not-wrap">{{ $product->minimum_price }} $us</td>
+                            <td class="not-wrap">{{ $product->sale_price }} $us</td>
                             <td>{{ $product->brand }}</td>
                             <td>{{ $product->created_at }}</td>
                             <td class="not-wrap">

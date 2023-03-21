@@ -29,7 +29,6 @@ class ProductController extends Controller
             'description' => 'max:200'
         ]);
 
-
         $name_image = round(microtime(true) * 1000);
         $extension = $request->file('image')->extension();
         $request->file('image')->storeAs('public/images/' . $name_image . "/", "sneaker." . $extension);
@@ -42,9 +41,13 @@ class ProductController extends Controller
         $writer = new Writer($renderer);
         $writer->writeFile($name_image, '../storage/app/public/images/' . $name_image . '/qrcode.png');
 
-        $buy_in = str_replace(" \$us", "", $request->buy_in);
-        $minimum_price = str_replace(" \$us", "", $request->minimum_price);
-        $sale_price = str_replace(" \$us", "", $request->sale_price);
+        $buy_in = number_format((float)$request->buy_in, 2, '.', '');
+        $buy_in = rtrim($buy_in, '0') . (substr($buy_in, -1) == '.' ? '0' : '');
+        $minimum_price = number_format((float)$request->minimum_price, 2, '.', '');
+        $minimum_price = rtrim($minimum_price, '0') . (substr($minimum_price, -1) == '.' ? '0' : '');
+        $sale_price = number_format((float)$request->sale_price, 2, '.', '');
+        $sale_price = rtrim($sale_price, '0') . (substr($sale_price, -1) == '.' ? '0' : '');
+
         DB::beginTransaction();
         try {
             DB::table('products')
@@ -81,6 +84,8 @@ class ProductController extends Controller
     }
     public function update(Request $request)
     {
+
+        
         $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|max:50',
@@ -95,7 +100,7 @@ class ProductController extends Controller
             'size' => 'required|max:5',
             'description' => 'max:200'
         ]);
-
+        
         $this_product = DB::Table('products')->where('id', '=', $request->id)->first();
         $url_image = $this_product->image;
         if ($request->image != null) {
@@ -106,9 +111,11 @@ class ProductController extends Controller
             $request->file('image')->storeAs('public/images/' . $this_product->qr_code . "/", $name_file . "." . $extension);
             $url_image = "storage/images/" . $this_product->qr_code . "/" . $name_file . "." . $extension;
         }
-        $buy_in = str_replace(" \$us", "", $request->buy_in);
-        $minimum_price = str_replace(" \$us", "", $request->minimum_price);
-        $sale_price = str_replace(" \$us", "", $request->sale_price);
+        
+        $buy_in = number_format((float)$request->buy_in, 2, '.', '');
+        $minimum_price = number_format((float)$request->minimum_price, 2, '.', '');
+        $sale_price = number_format((float)$request->sale_price, 2, '.', '');
+        
         DB::beginTransaction();
         try {
             DB::table('products')
@@ -126,8 +133,9 @@ class ProductController extends Controller
                     'description' => $request->description,
                     'updated_at' => now()
                 ]);
-
             DB::commit();
+
+            return back();
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollBack();
@@ -176,17 +184,17 @@ class ProductController extends Controller
             'sold_in' => 'required|numeric',
             'product_id' => 'required'
         ]);
-
+        $sold_in = number_format((float)$request->sold_in, 2, '.', '');
         DB::beginTransaction();
         try {
             DB::table('sales')->insert([
-                'sold_in' => $request->sold_in,
+                'sold_in' => $sold_in,
                 'sale_date' => now(),
                 'product_id' => $request->product_id,
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
-
+            
             DB::table('products')
                 ->where('id', '=', $request->product_id)
                 ->update(['status' => 'Sold']);

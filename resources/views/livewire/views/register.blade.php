@@ -121,7 +121,7 @@
                         input.value = input.value.slice(0, 12);
                     }
 
-                    this.value = this.value.replace(/[^\d]/g, "") + " $us";
+                    this.value = this.value.replace(/[^\d.]/g, "");
                 });
             });
         </script>

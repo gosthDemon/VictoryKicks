@@ -364,7 +364,7 @@
                                         value="{{ old('product_id') }}" required>
                                 <div class="form-group col-md-12">
                                     <label for="Sold_in">Sold in($us): </label>
-                                    <input type="number" class="form-control" id="sold_in" name="sold_in"
+                                    <input type="number" step="0.01" class="form-control" id="sold_in" name="sold_in"
                                         value="{{ old('sold_in') }}" required>
                                     @error('sold_in')
                                         <span class="text-danger">{{ $message }}</span>
